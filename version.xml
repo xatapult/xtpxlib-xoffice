@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version-information xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.xtpxlib.nl/ns/common ../xtpxlib-common/xsd/version.xsd"
+  xmlns="http://www.xtpxlib.nl/ns/common" component="xtpxlib-TBD" git="git@github.com:eriksiegel/xtpxlib-TBD.git">
+  <!-- ================================================================== -->
+  <!--
+    Version information for this component.
+  -->
+  <!-- ================================================================== -->
+
+  <dependencies>
+    <component name="xtpxlib-common"/>
+    <!-- TBD -->
+  </dependencies>
+
+  <release version="x.x" date="yyyy-mm-dd">
+    TBD
+  </release>
+
+</version-information>
