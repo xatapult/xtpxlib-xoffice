@@ -2,10 +2,23 @@
 <project version="21.1">
     <meta>
         <filters directoryPatterns="" filePatterns="" positiveFilePatterns="" showHiddenFiles="false"/>
-        <options/>
+        <options>
+            <serialized version="21.1" xml:space="preserve">
+                <serializableOrderedMap>
+                    <entry>
+                        <String>enable.project.master.files.support</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                </serializableOrderedMap>
+            </serialized>
+        </options>
     </meta>
     <projectTree name="xtpxlib-xoffice-dev.xpr">
+        <folder masterFiles="true" name="Master Files">
+            <file name="xtpxlib-xoffice-oxygen-project-master.xsl"/>
+        </folder>
         <folder path="../../xtpxlib-common/"/>
+        <folder path="../../xtpxlib-container/"/>
         <folder path="../"/>
         <folder path="../../../../xmldev/xtpxlib/"/>
     </projectTree>
