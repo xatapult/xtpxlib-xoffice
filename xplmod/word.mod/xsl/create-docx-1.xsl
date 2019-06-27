@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:xtlcon="http://www.xtpxlib.nl/ns/container" xmlns:fn="http://www.w3.org/2005/xpath-functions"
-  xmlns:xtlxo="http://www.xtpxlib.nl/ns/xoffice" xmlns="http://www.xtpxlib.nl/ns/xoffice" xmlns:xtlc="http://www.xtpxlib.nl/ns/common"
+  xmlns:xtlcon="http://www.xtpxlib.nl/ns/container" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xtlxo="http://www.xtpxlib.nl/ns/xoffice"
+  xmlns="http://www.xtpxlib.nl/ns/xoffice" xmlns:xtlc="http://www.xtpxlib.nl/ns/common"
   xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:local="#local" exclude-result-prefixes="#all">
   <!-- ================================================================== -->
   <!--*	
-    /TBD: Description/		
+    Stylesheet that creates a Word (.docx) (in xtpxlib-container format). 
 	-->
   <!-- ================================================================== -->
   <!-- SETUP: -->
@@ -16,10 +16,7 @@
   <xsl:include href="../../../../xtpxlib-common/xslmod/href.mod.xsl"/>
   <xsl:include href="../../../xslmod/xoffice.mod.xsl"/>
 
-  <xsl:param name="debug" as="xs:string" required="no" select="string(false())"/>
-
   <xsl:variable name="extracted-office-xml" as="element(xtlcon:document-container)" select="/*"/>
-  <xsl:variable name="do-debug" as="xs:boolean" select="xtlc:str2bln($debug, false())"/>
 
   <!-- Find the two parts in the container we have to merge: -->
   <xsl:variable name="main-word-document" as="element(w:document)"
@@ -40,23 +37,9 @@
   <xsl:template match="w:document[. is $main-word-document]/w:body">
     <xsl:copy>
       <xsl:copy-of select="@*"/>
-
       <!-- Keep the contents what is in the template (this will also preserve the headers and footers): -->
       <xsl:apply-templates/>
-
-      <!-- Add new content: -->
-      <xsl:if test="$do-debug">
-        <w:p>
-          <w:r>
-            <w:rPr>
-              <w:b/>
-            </w:rPr>
-            <w:t xml:space="preserve">CONVERTED: <xsl:value-of select="current-dateTime()"/></w:t>
-          </w:r>
-        </w:p>
-      </xsl:if>
       <xsl:apply-templates select="$xtpxlib-word-xml-document/*" mode="mode-process-contents"/>
-
     </xsl:copy>
   </xsl:template>
 

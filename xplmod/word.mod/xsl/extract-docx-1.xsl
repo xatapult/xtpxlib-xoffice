@@ -5,8 +5,8 @@
   xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:local="#local" exclude-result-prefixes="#all">
   <!-- ================================================================== -->
   <!--*	
-    /TBD: Description/		
-	-->
+    Stylesheet that takes an xtpxlib-container with a Word document (.docx) and turns this into some kind of XML 
+  -->
   <!-- ================================================================== -->
   <!-- SETUP: -->
 

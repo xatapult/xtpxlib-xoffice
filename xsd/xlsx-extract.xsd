@@ -104,7 +104,7 @@
           </xs:complexType>
         </xs:element>
       </xs:sequence>
-      <xs:attribute name="dref" type="xs:string" use="required">
+      <xs:attribute name="href" type="xs:string" use="required">
         <xs:annotation>
           <xs:documentation>Full document reference (including a file:// prefix) of the Excel file</xs:documentation>
         </xs:annotation>

@@ -9,7 +9,7 @@
   <!-- ================================================================== -->
   <!-- SETUP: -->
 
-  <p:option name="xlsx-dref" required="false" select="resolve-uri('test.xlsx', static-base-uri())"/>
+  <p:option name="xlsx-href" required="false" select="resolve-uri('test.xlsx', static-base-uri())"/>
 
   <p:output port="result" primary="true" sequence="false"/>
   <p:serialization port="result" method="xml" encoding="UTF-8" indent="true" omit-xml-declaration="false"/>
@@ -19,7 +19,7 @@
   <!-- ================================================================== -->
 
   <xtlxo:extract-xlsx>
-    <p:with-option name="xlsx-dref" select="$xlsx-dref"/>
+    <p:with-option name="xlsx-href" select="$xlsx-href"/>
   </xtlxo:extract-xlsx>
 
 </p:declare-step>

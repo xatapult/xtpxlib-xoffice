@@ -17,7 +17,7 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!-- SETUP: -->
 
-    <p:option name="xlsx-dref" required="true">
+    <p:option name="xlsx-href" required="true">
       <p:documentation>Document reference of the xlsx file to process (must have file:// in front).</p:documentation>
     </p:option>
 
@@ -27,15 +27,13 @@
       </p:documentation>
     </p:output>
 
-    <p:import href="../../../container/xplmod/container.mod/container.mod.xpl"/>
-
-    <p:variable name="debug" select="false()"/>
+    <p:import href="../../../xtpxlib-container/xplmod/container.mod/container.mod.xpl"/>
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
     <!-- Extract all XML content: -->
     <xtlcon:zip-to-container>
-      <p:with-option name="dref-source-zip" select="$xlsx-dref"/>
+      <p:with-option name="href-source-zip" select="$xlsx-href"/>
       <p:with-option name="add-document-target-paths" select="false()"/>
     </xtlcon:zip-to-container>
 
@@ -44,7 +42,7 @@
       <p:input port="stylesheet">
         <p:document href="xsl/extract-xlsx-1.xsl"/>
       </p:input>
-      <p:with-param name="debug" select="$debug"/>
+      <p:with-param name="null" select="()"/>
     </p:xslt>
     
     <!-- Remove any empty rows and cells: -->
@@ -52,7 +50,7 @@
       <p:input port="stylesheet">
         <p:document href="xsl/extract-xlsx-2.xsl"/>
       </p:input>
-      <p:with-param name="debug" select="$debug"/>
+      <p:with-param name="null" select="()"/>
     </p:xslt>
     
   </p:declare-step>

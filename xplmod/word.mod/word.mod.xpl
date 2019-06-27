@@ -82,8 +82,6 @@
 
     <p:import href="../../../xtpxlib-container/xplmod/container.mod/container.mod.xpl"/>
 
-    <p:variable name="debug" select="false()"/>
-
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
     <p:identity name="input-source"/>
@@ -118,7 +116,7 @@
       <p:input port="stylesheet">
         <p:document href="xsl/create-docx-1.xsl"/>
       </p:input>
-      <p:with-param name="debug" select="$debug"/>
+      <p:with-param name="null" select="()"/>
     </p:xslt>
 
     <!-- Write the container back to disk: -->

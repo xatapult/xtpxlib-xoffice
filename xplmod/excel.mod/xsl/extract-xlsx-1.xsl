@@ -13,9 +13,9 @@
   
   <xsl:output method="xml" indent="no" encoding="UTF-8"/>
   
-  <xsl:include href="../../../../common/xslmod/common.mod.xsl"/>
-  <xsl:include href="../../../../common/xslmod/dref.mod.xsl"/>
-  <xsl:include href="../../../xslmod/ms-office.mod.xsl"/>
+  <xsl:include href="../../../../xtpxlib-common/xslmod/general.mod.xsl"/>
+  <xsl:include href="../../../../xtpxlib-common/xslmod/href.mod.xsl"/>
+  <xsl:include href="../../../xslmod/xoffice.mod.xsl"/>
   
   <xsl:variable name="extracted-office-xml" as="element(xtlcon:document-container)" select="/*"/>
   
@@ -30,7 +30,7 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   
   <xsl:template match="/*">
-    <workbook dref="{/*/@dref-source-zip}" timestamp="{current-dateTime()}">
+    <workbook href="{/*/@href-source-zip}" timestamp="{current-dateTime()}">
       
       <!-- Get the properties: -->
       <xsl:call-template name="xtlxo:get-properties">
