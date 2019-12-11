@@ -1,0 +1,33 @@
+<document xmlns="http://www.xtpxlib.nl/ns/xoffice"
+          dref=""
+          timestamp="2019-12-11T13:09:15.415+01:00">
+   <properties>
+      … document properties …      
+   </properties>
+  
+   <p xml:space="preserve">Hello there!</p>
+   <p xml:space="preserve">Something in <span class="b">Bold</span>!</p>
+   <p class="ListBullet" xml:space="preserve">A list entry</p>
+   <p class="ListBullet" xml:space="preserve">Another one</p>
+   <p class="ListBullet" indent-left="360" indent-level="0" xml:space="preserve"/>
+   <table>
+      <tr>
+         <td>
+            <p class="ListBullet" indent-level="0" xml:space="preserve">Simple table header</p>
+         </td>
+         <td>
+            <p class="ListBullet" indent-level="0" xml:space="preserve">More header</p>
+         </td>
+      </tr>
+      <tr>
+         <td>
+            <p class="ListBullet" indent-level="0" xml:space="preserve">Column1, row 2</p>
+         </td>
+         <td>
+            <p class="ListBullet" indent-level="0" xml:space="preserve">Column 2 row 2</p>
+         </td>
+      </tr>
+   </table>
+   <p class="ListBullet" indent-left="360" indent-level="0" xml:space="preserve"/>
+  
+</document>

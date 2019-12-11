@@ -2,23 +2,25 @@
 <p:library xmlns:p="http://www.w3.org/ns/xproc" xmlns:c="http://www.w3.org/ns/xproc-step" xmlns:xtlxo="http://www.xtpxlib.nl/ns/xoffice"
   xmlns:xtlcon="http://www.xtpxlib.nl/ns/container" xmlns:xtlc="http://www.xtpxlib.nl/ns/common" xmlns:pxp="http://exproc.org/proposed/steps"
   xmlns:local="#local.word-to-xml.mod.xpl" version="1.0" xpath-version="2.0" exclude-inline-prefixes="#all">
-  <!-- ================================================================== -->
-  <!--* 
-    Various conversions for Word (.docx) files	
-  -->
-  <!-- ================================================================== -->
 
+  <p:documentation>
+    Conversions for Word (`.docx`) documents.  
+   
+  </p:documentation>
+  
+  <!-- ================================================================== -->
+  
   <p:declare-step type="xtlxo:extract-docx">
 
     <p:documentation>
-      Extracts the contents of a Word file in a more useable format.
+      Extracts the contents of a Word file in a more useable XML format.
     </p:documentation>
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!-- SETUP: -->
 
     <p:option name="docx-href" required="true">
-      <p:documentation>Document reference of the docx file to process (must have file:// in front).</p:documentation>
+      <p:documentation>Document reference of the `.docx` file to process (must have `file://` in front).</p:documentation>
     </p:option>
 
     <p:output port="result" primary="true" sequence="false">
@@ -49,12 +51,13 @@
   </p:declare-step>
 
   <!-- ================================================================== -->
-  <!-- PROCESS XML INTO A WORD .DOCX FILE: -->
 
   <p:declare-step type="xtlxo:create-docx">
 
     <p:documentation>
-      Turns the Word XML (back) into a Word .docx file, using a template file. This must be in the format the extract-docx pipeline creates.
+      Turns Word XML (back) into a Word `.docx` file, using a template file. 
+      
+      The input must be in the format the `xtlxo:extract-docx` pipeline creates.
     </p:documentation>
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -62,21 +65,21 @@
 
     <p:input port="source" primary="true" sequence="false">
       <p:documentation>
-        The Word XML that must be turned into the .docx file.
+        The Word XML that must be converted to `.docx` format.
       </p:documentation>
     </p:input>
 
     <p:option name="template-docx-href" required="true">
-      <p:documentation>Document reference of the template docx file to use (must have file:// in front).</p:documentation>
+      <p:documentation>Document reference of the template `.docx` file to use (must have `file://` in front).</p:documentation>
     </p:option>
 
     <p:option name="result-docx-href" required="true">
-      <p:documentation>Document reference where to write the resulting .docx file.</p:documentation>
+      <p:documentation>Document reference where to write the resulting `.docx` file (must have `file://` in front).</p:documentation>
     </p:option>
 
     <p:output port="result" primary="true" sequence="false">
       <p:documentation>
-        The xtlcon:document-container as written to the final Word file.
+        The document-container (see [xtpxlib-container](https://container.xtpxlib.org)) as written to the final Word file.
       </p:documentation>
     </p:output>
 

@@ -2,23 +2,24 @@
 <p:library xmlns:p="http://www.w3.org/ns/xproc" xmlns:c="http://www.w3.org/ns/xproc-step" xmlns:xtlxo="http://www.xtpxlib.nl/ns/xoffice"
   xmlns:xtlcon="http://www.xtpxlib.nl/ns/container" xmlns:xtlc="http://www.xtpxlib.nl/ns/common" xmlns:pxp="http://exproc.org/proposed/steps"
   xmlns:local="#local.excel-to-xml.mod.xpl" version="1.0" xpath-version="2.0" exclude-inline-prefixes="#all">
+ 
+  <p:documentation>
+    Conversions for Excel (`.xlsx`) files.
+  </p:documentation>
+  
   <!-- ================================================================== -->
-  <!--* 
-    Various conversions for Excel (.xlsx) files	
-  -->
-  <!-- ================================================================== -->
-
+  
   <p:declare-step type="xtlxo:extract-xlsx">
 
     <p:documentation>
-      Extracts the contents of an Excel file in a more useable XML format.
+      Extracts the contents of an Excel (`.xlsx`) file in a more useable [XML format](%xlsx-extract.xsd).
     </p:documentation>
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!-- SETUP: -->
 
     <p:option name="xlsx-href" required="true">
-      <p:documentation>Document reference of the xlsx file to process (must have file:// in front).</p:documentation>
+      <p:documentation>Document reference of the `.xlsx` file to process (must have `file://` in front).</p:documentation>
     </p:option>
 
     <p:output port="result" primary="true" sequence="false">

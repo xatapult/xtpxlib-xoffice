@@ -9,7 +9,7 @@
   <!-- ================================================================== -->
   <!-- SETUP: -->
 
-  <p:option name="docx-href" required="false" select="resolve-uri('test.docx', static-base-uri())"/>
+  <p:option name="docx-href" required="false" select="resolve-uri('test2.docx', static-base-uri())"/>
 
   <p:output port="result" primary="true" sequence="false"/>
   <p:serialization port="result" method="xml" encoding="UTF-8" indent="true" omit-xml-declaration="false"/>

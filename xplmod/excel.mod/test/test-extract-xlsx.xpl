@@ -9,7 +9,7 @@
   <!-- ================================================================== -->
   <!-- SETUP: -->
 
-  <p:option name="xlsx-href" required="false" select="resolve-uri('test.xlsx', static-base-uri())"/>
+  <p:option name="xlsx-href" required="false" select="resolve-uri('test2.xlsx', static-base-uri())"/>
 
   <p:output port="result" primary="true" sequence="false"/>
   <p:serialization port="result" method="xml" encoding="UTF-8" indent="true" omit-xml-declaration="false"/>

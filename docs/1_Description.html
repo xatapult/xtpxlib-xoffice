@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:xtlcon="http://www.xtpxlib.nl/ns/container" lang="en" xml:lang="en">
+  
+  
+  
+  
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="resources/bootstrap.min.css"/>
+    <link rel="stylesheet" href="resources/xtpxlib-moduledoc.css"/>
+    <link rel="shortcut icon" href="resources/favicon.ico"/>
+    <title>1 Description</title>
+  </head>
+  <body style="padding-top: 65px;"><nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark"><a class="navbar-brand" href="index.html" title="home">xtpxlib-xoffice</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"/></button><div id="navbarSupportedContent" class="collapse navbar-collapse"><ul class="navbar-nav mr-auto"><li class="nav-item dropdown"><a href="1_Description.html" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Description <span class="caret"/></a><div class="dropdown-menu"><a href="1_Description.html" class="dropdown-item">Description</a><div class="dropdown-divider"><!----></div><a class="dropdown-item" href="1_Description.html#d760e164">Converting Excel (.xlsx)</a><a class="dropdown-item" href="1_Description.html#d760e217">Converting Word (.docx)</a></div></li><li class="nav-item dropdown"><a href="2_XProc_Libraries.html" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">XProc Libraries <span class="caret"/></a><div class="dropdown-menu"><a href="2_XProc_Libraries.html" class="dropdown-item">XProc Libraries</a><div class="dropdown-divider"><!----></div><a class="dropdown-item" href="2_XProc_Libraries.html#excel.mod.xpl">XProc (1.0) library: excel.mod.xpl</a><a class="dropdown-item" href="2_XProc_Libraries.html#word.mod.xpl">XProc (1.0) library: word.mod.xpl</a></div></li><li class="nav-item dropdown"><a href="3_XML_Schemas.html" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">XML Schemas <span class="caret"/></a><div class="dropdown-menu"><a href="3_XML_Schemas.html" class="dropdown-item">XML Schemas</a><div class="dropdown-divider"><!----></div><a class="dropdown-item" href="3_XML_Schemas.html#xlsx-extract.xsd">XML Schema: xlsx-extract.xsd</a></div></li><li class="nav-item"><a class="nav-link" href="resources/xtpxlib-xoffice-documentation.pdf" title="PDF version of this documentation site">PDF</a></li></ul></div></nav><div class="container"><a name="chapter-description"><!----></a><div class="page-header" style="padding-top: 65px; margin-top: -65px;"><h1 class="chapter"><span class="chapter-number">1 </span>Description</h1></div><p class="para">Microsoft Office files are actually zip files with a lot of XML and other stuff inside. It is remarkably difficult to get to the actual
+      contents of them: What is in Excel cell A1B2 or what is written in this Word document. To help with this, the <code class="code">xtpxlib-xoffice</code>
+      component contains XProc (1.0) pipelines to extract contents from Excel (<code class="code">.xlsx</code>) and Word (<code class="code">.docx</code>) files:</p><p class="para">The namespace prefix <code class="code">xtlxo:</code> is bound to the namespace <code class="code">http://www.xtpxlib.nl/ns/xoffice</code>
+        (<code class="code">xmlns:xtlxo="http://www.xtpxlib.nl/ns/xoffice"</code>).</p><div class="sect1" id="d760e164"><a name="d760e164"><!----></a><h2 class="sect1" style="padding-top: 65px; margin-top: -65px;"><span class="sect1-number">1.1</span> Converting Excel (<code class="code">.xlsx</code>)</h2><p class="para">The <code class="code"><a href="2_XProc_Libraries.html#excel.mod.xpl-xtlxo_extract-xlsx"><span class="link">xtlxo:extract-xlsx</span></a></code> pipleine takes an Excel <code class="code">.xlsx</code>
+        file and turns this into much more manageable XML. The schema for the resulting XML format is <a href="3_XML_Schemas.html#xlsx-extract.xsd"><span class="link">here</span></a>.</p><p class="para">Take for instance this simple Excel sheet:</p><p class="figure"><img src="resources/excel-example.png" class="figure"/><br/></p><p class="para">Running this through the <code class="code"><a href="2_XProc_Libraries.html#excel.mod.xpl-xtlxo_extract-xlsx"><span class="link">xtlxo:extract-xlsx</span></a></code> pipeline returns
+        something like:</p><div class="programlisting"><pre class="programlisting">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;workbook xmlns="http://www.xtpxlib.nl/ns/xoffice"
+          href="file:///path/to/excel.xlsx"
+          timestamp="2019-12-11T12:50:20.252+01:00"&gt;
+  
+   &lt;properties&gt;
+      … Sheet properties …
+   &lt;/properties&gt;
+  
+   &lt;worksheet name="Sheet1"&gt;
+      &lt;row index="1"&gt;
+         &lt;cell index="1" ref="A1"&gt;
+            &lt;value&gt;1&lt;/value&gt;
+         &lt;/cell&gt;
+         &lt;cell index="2" ref="B1"&gt;
+            &lt;value&gt;What's up?&lt;/value&gt;
+         &lt;/cell&gt;
+      &lt;/row&gt;
+      &lt;row index="2"&gt;
+         &lt;cell index="1" ref="A2"&gt;
+            &lt;value&gt;2&lt;/value&gt;
+            &lt;formula&gt;A1+1&lt;/formula&gt;
+         &lt;/cell&gt;
+         &lt;cell index="2" ref="B2"&gt;
+            &lt;value&gt;Cell with &lt;span class="b"&gt;bold&lt;/span&gt; in it&lt;/value&gt;
+         &lt;/cell&gt;
+      &lt;/row&gt;
+   &lt;/worksheet&gt;
+  
+&lt;/workbook&gt;</pre></div></div><div class="sect1" id="d760e217"><a name="d760e217"><!----></a><h2 class="sect1" style="padding-top: 65px; margin-top: -65px;"><span class="sect1-number">1.2</span> Converting Word (<code class="code">.docx</code>)</h2><p class="para">The <code class="code"><a href="2_XProc_Libraries.html#word.mod.xpl-xtlxo_extract-docx"><span class="link">xtlxo:extract-docx</span></a></code> pipeline takes a Word (<code class="code">.docx</code>) file
+        and turns this into an understandable XML format. This format is more experimental than the format created by the Excel conversion and there
+        isn't (yet) a schema for it.</p><p class="para">As an example take this simple Word file:</p><p class="figure"><img src="resources/word-example.png" class="figure"/><br/></p><p class="para">Running this through the <code class="code"><a href="2_XProc_Libraries.html#word.mod.xpl-xtlxo_extract-docx"><span class="link">xtlxo:extract-docx</span></a></code> pipeline returns something
+        like:</p><div class="programlisting"><pre class="programlisting">&lt;document xmlns="http://www.xtpxlib.nl/ns/xoffice"
+          dref=""
+          timestamp="2019-12-11T13:09:15.415+01:00"&gt;
+   &lt;properties&gt;
+      … document properties …      
+   &lt;/properties&gt;
+  
+   &lt;p xml:space="preserve"&gt;Hello there!&lt;/p&gt;
+   &lt;p xml:space="preserve"&gt;Something in &lt;span class="b"&gt;Bold&lt;/span&gt;!&lt;/p&gt;
+   &lt;p class="ListBullet" xml:space="preserve"&gt;A list entry&lt;/p&gt;
+   &lt;p class="ListBullet" xml:space="preserve"&gt;Another one&lt;/p&gt;
+   &lt;p class="ListBullet" indent-left="360" indent-level="0" xml:space="preserve"/&gt;
+   &lt;table&gt;
+      &lt;tr&gt;
+         &lt;td&gt;
+            &lt;p class="ListBullet" indent-level="0" xml:space="preserve"&gt;Simple table header&lt;/p&gt;
+         &lt;/td&gt;
+         &lt;td&gt;
+            &lt;p class="ListBullet" indent-level="0" xml:space="preserve"&gt;More header&lt;/p&gt;
+         &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+         &lt;td&gt;
+            &lt;p class="ListBullet" indent-level="0" xml:space="preserve"&gt;Column1, row 2&lt;/p&gt;
+         &lt;/td&gt;
+         &lt;td&gt;
+            &lt;p class="ListBullet" indent-level="0" xml:space="preserve"&gt;Column 2 row 2&lt;/p&gt;
+         &lt;/td&gt;
+      &lt;/tr&gt;
+   &lt;/table&gt;
+   &lt;p class="ListBullet" indent-left="360" indent-level="0" xml:space="preserve"/&gt;
+  
+&lt;/document&gt;</pre></div><p class="para" style="font-size: 50%;"> </p><p class="para">There is an experimental pipeline <code class="code"><a href="2_XProc_Libraries.html#word.mod.xpl-xtlxo_create-docx"><span class="link">xtlxo:create-docx</span></a></code> to create Word
+        documents (using a template Word document for things like styles, margins, etc.). If you feed this the same kind of XML you get from
+            <code class="code"><a href="2_XProc_Libraries.html#word.mod.xpl-xtlxo_extract-docx"><span class="link">xtlxo:extract-docx</span></a></code>, the result <span class="emphasis italic">should</span> be a valid,
+        useable Word document with the new text in it. Use at your own risk.</p></div></div><script src="resources/jquery-3.4.1.slim.min.js"><!--  --></script><script src="resources/popper.min.js"><!--  --></script><script src="resources/bootstrap.min.js"><!--  --></script></body>
+</html>

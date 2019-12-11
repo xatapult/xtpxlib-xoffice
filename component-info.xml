@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component-info xmlns="http://www.xtpxlib.nl/ns/webdoc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xml="http://www.w3.org/XML/1998/namespace" xsi:schemaLocation="http://www.xtpxlib.nl/ns/webdoc xsd/component-info.xsd" name="xtpxlib-xoffice">
+  <!-- ================================================================== -->
+  <!--
+    Component information for this xtpxlib component.
+
+    The information in this document is used in several places to generate documentation, readme files, etc.
+  -->
+  <!-- ================================================================== -->
+
+  <releases>
+    <release version="0.9" date="2019-12-11">
+      Pre-release to test GitHub pages functionality.
+    </release>
+  </releases>
+
+  <dependencies>
+    <component name="xtpxlib-common"/>
+    <component name="xtpxlib-container"/>
+  </dependencies>
+
+  <title>Conversions from Word and Excel files into XML</title>
+  <summary>
+    This component contains pipelines for converting Microsoft Office Word (`.docx`) and Excel (`.xlsx`) files into some more manageable XML formats. 
+  </summary>
+  
+  <documentation-uri>https://xoffice.xtpxlib.org</documentation-uri>
+
+  <git-uri>git@github.com:xatapult/xtpxlib-xoffice.git</git-uri>
+  <git-site-uri>https://github.com/xatapult/xtpxlib-xoffice</git-site-uri>
+
+</component-info>

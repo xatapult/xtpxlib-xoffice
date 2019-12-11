@@ -1,0 +1,36 @@
+/*  
+ * CSS with overrides for the bootstrap settings for the xtpxlib component documentation websites
+ */
+
+code {
+  /*  Slightly change the bootstrap appearance of code: */
+  color: black;
+  background-color: transparent;
+  font-size: 100%;
+}
+
+pre {
+  background-color: lightgrey;
+}
+
+div.sidebar,
+div.warning,
+div.note {
+  border: thin black solid;
+  padding: 10px;
+}
+
+p.bridgehead {
+  margin-top: 2em;
+  font-weight: bold;
+  border-top: thin solid grey;
+  background-color: lightgrey;
+}
+
+span.italic {
+  font-style: italic;
+}
+
+dd {
+  margin-left: 1em;
+}
