@@ -1,39 +1,29 @@
-# `xtpxlib-TBD`: Xatapult XML Library - TBD
+# `xtpxlib-xoffice`: Xatapult XML Library - Conversions from Word and Excel files into XML
 
-Version release and dependency information: See `/version.xml` 
+**Xatapult Content Engineering - [`http://www.xatapult.com`](http://www.xatapult.com)**
 
-Xatapult Content Engineering - http://www.xatapult.nl
+---------- 
 
-Erik Siegel - erik@xatapult.nl - +31 6 53260792
+This component contains pipelines for converting Microsoft Office Word (`.docx`) and Excel (`.xlsx`) files into some more manageable XML formats. 
 
-----
+## Technical information
 
-**`xtpxlib`** is a library containing software for processing XML, using languages like 
-XSLT, XProc etc. It consists of several separate components, named `xtpxlib-*`. Everything can be found on GitHub ([https://github.com/eriksiegel](https://github.com/eriksiegel)).
+Component version: V0.9 - 2019-12-11
 
-**`xtpxlib-TBD`** ([https://github.com/eriksiegel/xtpxlib-TBD](https://github.com/eriksiegel/xtpxlib-TBD)) is TBD.
+Documentation: [`https://xoffice.xtpxlib.org`](https://xoffice.xtpxlib.org)
 
-----
+Git URI: `git@github.com:xatapult/xtpxlib-xoffice.git`
 
-## Using `xtpxlib`
+Git site: [`https://github.com/xatapult/xtpxlib-xoffice`](https://github.com/xatapult/xtpxlib-xoffice)
+      
+This component depends on:
+* [`xtpxlib-container`](https://container.xtpxlib.org) (Support for XML containers (multiple files wrapped into one))
+* [`xtpxlib-common`](https://common.xtpxlib.org) (Common component: Shared libraries and IDE support)
 
-* Clone the GitHub repository to some appropriate location on disk. That's basicly it for installation.
-* If you use more than one `xtpxlib` component, all repositories must be cloned in the same base directory.
+## Version history
 
-----
+**V0.9 - 2019-12-11 (current)**
 
-## Library contents
+Pre-release to test GitHub pages functionality.
 
-### Directories at root level
 
-| Directory | Description | Remarks |
-| --------- | ----------- | --------|
-| `data` | Static data files. |  |
-| `etc` | Other files, mostly for use inside oXygen. |  |
-| `xplmod` | XProc 1.0 libraries. |  |
-| `xsl` | XSLT scripts. |  |
-| `xslmod` | XSLT libraries. |  |
-
-The subdirectories named `tmp` and  `build` may appear while running parts of the library. These directories are for temporary and build results. Git will ignore them because of the `.gitignore` settings.
-
-Most files contain a header comment about what they're for.

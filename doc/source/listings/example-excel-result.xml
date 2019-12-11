@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbook xmlns="http://www.xtpxlib.nl/ns/xoffice"
+          href="file:///path/to/excel.xlsx"
+          timestamp="2019-12-11T12:50:20.252+01:00">
+  
+   <properties>
+      … Sheet properties …
+   </properties>
+  
+   <worksheet name="Sheet1">
+      <row index="1">
+         <cell index="1" ref="A1">
+            <value>1</value>
+         </cell>
+         <cell index="2" ref="B1">
+            <value>What's up?</value>
+         </cell>
+      </row>
+      <row index="2">
+         <cell index="1" ref="A2">
+            <value>2</value>
+            <formula>A1+1</formula>
+         </cell>
+         <cell index="2" ref="B2">
+            <value>Cell with <span class="b">bold</span> in it</value>
+         </cell>
+      </row>
+   </worksheet>
+  
+</workbook>

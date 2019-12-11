@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../xtpxlib-xdoc/xsd/docbook/docbook.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude"
+  xmlns:xdoc="http://www.xtpxlib.nl/ns/xdoc" version="5.0">
+  <!-- ================================================================== -->
+  <!--
+    Source for this component's documentation.
+  -->
+  <!-- ================================================================== -->
+
+  <info>
+    <title>{$component-name}</title>
+    <subtitle>Conversions for Word and Excel files</subtitle>
+    <pubdate>{$DATE}</pubdate>
+    <author>
+      <personname>{$author-name}</personname>
+    </author>
+    <orgname>{$owner-company-name}</orgname>
+  </info>
+
+  <!-- ================================================================== -->
+
+  <preface>
+    <title>{$library-name} - Conversions for Word and Excel files</title>
+
+    <xdoc:transform href="../../../xtpxlib-webdoc/transforms/generate-basic-component-information-header.xpl" component-name="{$component-name}"/>
+
+  </preface>
+
+  <!-- ================================================================== -->
+
+  <chapter xml:id="chapter-description">
+    <title>Description</title>
+
+
+    <para>Microsoft Office files are actually zip files with a lot of XML and other stuff inside. It is remarkably difficult to get to the actual
+      contents of them: What is in Excel cell A1B2 or what is written in this Word document. To help with this, the <code>{$component-name}</code>
+      component contains XProc (1.0) pipelines to extract contents from Excel (<code>.xlsx</code>) and Word (<code>.docx</code>) files:</para>
+
+    <para>The namespace prefix <code>xtlxo:</code> is bound to the namespace <code>http://www.xtpxlib.nl/ns/xoffice</code>
+        (<code>xmlns:xtlxo="http://www.xtpxlib.nl/ns/xoffice"</code>).</para>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    <sect1>
+      <title>Converting Excel (<code>.xlsx</code>)</title>
+
+      <para>The <code><link linkend="excel.mod.xpl-xtlxo_extract-xlsx">xtlxo:extract-xlsx</link></code> pipleine takes an Excel <code>.xlsx</code>
+        file and turns this into much more manageable XML. The schema for the resulting XML format is <link linkend="xlsx-extract.xsd"
+        >here</link>.</para>
+
+      <para>Take for instance this simple Excel sheet:</para>
+      <figure>
+        <title>Excel example sheet</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resources/excel-example.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>Running this through the <code><link linkend="excel.mod.xpl-xtlxo_extract-xlsx">xtlxo:extract-xlsx</link></code> pipeline returns
+        something like:</para>
+      <programlisting><xi:include href="listings/example-excel-result.xml" parse="text"/></programlisting>
+    </sect1>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    <sect1>
+      <title>Converting Word (<code>.docx</code>)</title>
+
+      <para>The <code><link linkend="word.mod.xpl-xtlxo_extract-docx">xtlxo:extract-docx</link></code> pipeline takes a Word (<code>.docx</code>) file
+        and turns this into an understandable XML format. This format is more experimental than the format created by the Excel conversion and there
+        isn't (yet) a schema for it.</para>
+
+      <para>As an example take this simple Word file:</para>
+      <figure>
+        <title>Example Word document</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="resources/word-example.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>Running this through the <code><link linkend="word.mod.xpl-xtlxo_extract-docx">xtlxo:extract-docx</link></code> pipeline returns something
+        like:</para>
+      <programlisting><xi:include href="listings/example-word-result.xml" parse="text"/></programlisting>
+
+      <para role="halfbreak"/>
+      <para>There is an experimental pipeline <code><link linkend="word.mod.xpl-xtlxo_create-docx">xtlxo:create-docx</link></code> to create Word
+        documents (using a template Word document for things like styles, margins, etc.). If you feed this the same kind of XML you get from
+            <code><link linkend="word.mod.xpl-xtlxo_extract-docx">xtlxo:extract-docx</link></code>, the result <emphasis>should</emphasis> be a valid,
+        useable Word document with the new text in it. Use at your own risk.</para>
+
+    </sect1>
+
+  </chapter>
+
+  <!-- ================================================================== -->
+
+  <chapter xml:id="chapter-xproc-libraries" xreflabel="XProc Libraries">
+    <title>XProc Libraries</title>
+
+    <para>The {$component-name} component contains the following XProc (1.0) library modules:</para>
+
+    <xdoc:transform href="$xdoc/code-docgen-dir.xpl" dir="../../xplmod/" filter="\.mod\.xpl$" header-level="1" filecomponents="3" sublevels="true"/>
+
+  </chapter>
+
+  <!-- ================================================================== -->
+
+  <chapter xml:id="chapter-xml-schemas" xreflabel="XML Schemas">
+    <title>XML Schemas</title>
+
+    <para>The {$component-name} component contains the following XML Schemas:</para>
+
+    <xdoc:transform href="$xdoc/code-docgen-dir.xpl" dir="../../xsd/" filter="\.xsd$" header-level="1" filecomponents="2" sublevels="true"/>
+
+  </chapter>
+
+</book>
