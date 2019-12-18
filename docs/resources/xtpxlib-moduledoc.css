@@ -20,6 +20,18 @@ div.note {
   padding: 10px;
 }
 
+div.warning {
+  background-color: yellow;
+}
+
+div.note {
+  background-color: lightblue;
+}
+
+div.example {
+  padding: 10px;
+}
+
 p.bridgehead {
   margin-top: 2em;
   font-weight: bold;
@@ -33,4 +45,9 @@ span.italic {
 
 dd {
   margin-left: 1em;
+}
+
+span.tbd-marker {
+  background-color: yellow;
+  font-weight: bold;
 }

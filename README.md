@@ -8,7 +8,7 @@ This component contains pipelines for converting Microsoft Office Word (`.docx`)
 
 ## Technical information
 
-Component version: V0.9 - 2019-12-11
+Component version: V1.0 - 2019-12-18
 
 Documentation: [`https://xoffice.xtpxlib.org`](https://xoffice.xtpxlib.org)
 
@@ -22,7 +22,11 @@ This component depends on:
 
 ## Version history
 
-**V0.9 - 2019-12-11 (current)**
+**V1.0 - 2019-12-18 (current)**
+
+Initial release
+
+**V0.9 - 2019-12-11**
 
 Pre-release to test GitHub pages functionality.
 
