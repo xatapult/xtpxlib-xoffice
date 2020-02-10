@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  targetNamespace="http://www.xatapult.nl/namespaces/common/xslt/mso/library" xmlns="http://www.xatapult.nl/namespaces/common/xslt/mso/library">
+  <xs:element name="ExcelModifications">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="Worksheet">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="Row">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Cell">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Value">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="force-string" type="xs:boolean">
+                                    <xs:annotation>
+                                      <xs:documentation>When true, the value will always be interpreted as a string. When false, anything that can be converted into a number will become a number.
+When absent, the global settings apply.</xs:documentation>
+                                    </xs:annotation>
+                                  </xs:attribute>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="index" type="xs:positiveInteger" use="required">
+                          <xs:annotation>
+                            <xs:documentation>The column index (starting with 1)</xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="index" type="xs:positiveInteger" use="required">
+                    <xs:annotation>
+                      <xs:documentation>The row index (starting with 1)</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="required">
+              <xs:annotation>
+                <xs:documentation>Name of the worksheet (as displayed on the Excel tab)</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute default="false" name="force-string" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>When true, all values will always be interpreted as a string. When false, anything that can be converted into a number will become a number (unless an individual value @force-string is set to true).</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
