@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.xtpxlib.nl/ns/xoffice"
+  xmlns:xtlxo="http://www.xtpxlib.nl/ns/xoffice">
+  <xs:element name="excel-modifications">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="worksheet">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="row">
+                <xs:annotation>
+                  <xs:documentation>Definition of the row for the value insertion. Either @name or @index must defined, not both.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="column">
+                      <xs:annotation>
+                        <xs:documentation>Definition of the column for the value insertion. Either @name or @index must defined, not both.</xs:documentation>
+                      </xs:annotation>
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="value">
+                            <xs:annotation>
+                              <xs:documentation>The value to insert.</xs:documentation>
+                            </xs:annotation>
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="force-string" type="xs:boolean">
+                                    <xs:annotation>
+                                      <xs:documentation>When true, the value will always be interpreted as a string. When false, anything that can be converted into a number will become a number.
+When absent, the global settings (from /*) apply.</xs:documentation>
+                                    </xs:annotation>
+                                  </xs:attribute>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="index" type="xs:positiveInteger">
+                          <xs:annotation>
+                            <xs:documentation>The column index (starting with 1)</xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                        <xs:attribute name="name" type="xs:string">
+                          <xs:annotation>
+                            <xs:documentation>An Excel name defined on this worksheet. The column of the left-upper cell is used. </xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                        <xs:attribute default="true" name="name-must-exist" type="xs:boolean">
+                          <xs:annotation>
+                            <xs:documentation>If true, an error is raised if there is no @name defined on this worksheet.</xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="index" type="xs:positiveInteger">
+                    <xs:annotation>
+                      <xs:documentation>The row index (starting with 1)</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="name" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>An Excel name defined on this worksheet. The row of the left-upper cell is used. </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute default="true" name="name-must-exist" type="xs:boolean">
+                    <xs:annotation>
+                      <xs:documentation>If true, an error is raised if there is no @name defined on this worksheet.</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="required">
+              <xs:annotation>
+                <xs:documentation>Name of the worksheet (as displayed on the Excel tab).
+</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute default="true" name="worksheet-must-exist" type="xs:boolean">
+              <xs:annotation>
+                <xs:documentation>If true, an error is raised if the worksheet doesn't exist.</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute default="false" name="force-string" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>When true, all values will always be interpreted as a string. When false, anything that can be converted into a number will become a number (unless an individual value @force-string is set to true).</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:anyAttribute namespace="##any" processContents="skip">
+        <xs:annotation>
+          <xs:documentation>Additional information may be present.</xs:documentation>
+        </xs:annotation>
+      </xs:anyAttribute>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
