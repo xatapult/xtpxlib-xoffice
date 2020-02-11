@@ -1,24 +1,13 @@
-<ExcelModifications xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.xatapult.nl/namespaces/common/xslt/mso/library ../xsd/excel-modifications.xsd"
- xmlns="http://www.xatapult.nl/namespaces/common/xslt/mso/library" force-string="true">
-  <Worksheet name="TEST">
-    <Row index="6">
-      <Cell index="1">
-        <Value force-string="true">10.5</Value>
-      </Cell>
-      <Cell index="3">
-        <Value>BLUB</Value>
-      </Cell>
-    </Row>
-    <Row index="1">
-      <Cell index="1">
-        <Value>10.5</Value>
-      </Cell>
-      <Cell index="3">
-        <Value>BLUB</Value>
-      </Cell>
-      
-      
-    </Row>
-  </Worksheet>
-</ExcelModifications>
+<xlsx-modifications xmlns="http://www.xtpxlib.nl/ns/xoffice"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.xtpxlib.nl/ns/xoffice ../../../xsd/xlsx-modify.xsd">
+  
+  <worksheet name="TEST">
+    <row index="1">
+      <column index="1">
+        <value>Upper left-hand corner</value>
+      </column>
+    </row>
+  </worksheet>
+  
+</xlsx-modifications>
