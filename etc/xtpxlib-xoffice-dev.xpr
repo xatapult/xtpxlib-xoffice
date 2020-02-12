@@ -14,7 +14,22 @@
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="url">
-                                    <String>../xplmod/excel.mod/xsl/modify-xlsx-2.xsl</String>
+                                    <String>../xplmod/excel.mod/xsl/modify-xlsx-prepare.xsl</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>test-modify-xlsx</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XPROC</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>../xplmod/excel.mod/test/test-modify-xlsx-input.xml</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
@@ -45,6 +60,21 @@
                             <scenarioAssociation>
                                 <field name="url">
                                     <String>../xplmod/excel.mod/xsl/modify-xlsx-1.xsl</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>test-modify-xlsx</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XPROC</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>../xplmod/excel.mod/xsl/modify-xlsx-2.xsl</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
@@ -383,7 +413,7 @@
                                     <null/>
                                 </field>
                                 <field name="openOtherLocationInBrowser">
-                                    <Boolean>true</Boolean>
+                                    <Boolean>false</Boolean>
                                 </field>
                                 <field name="locationToOpenInBrowserURL">
                                     <String>${TMP}/modify-xlsx-result.xlsx</String>

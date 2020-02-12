@@ -108,7 +108,15 @@
         <p:pipe port="result" step="modification-specification-xtlcon-document"/>
       </p:input>
     </p:insert>
-
+    
+    <!-- Prepare the modification part (convert name references into index coordinates): -->
+    <p:xslt>
+      <p:input port="stylesheet">
+        <p:document href="xsl/modify-xlsx-prepare.xsl"/>
+      </p:input>
+      <p:with-param name="null" select="()"/>
+    </p:xslt>
+    
     <!-- First perform a rather raw merge of the modifications in the Excel contents: -->
     <p:xslt>
       <p:input port="stylesheet">
@@ -124,6 +132,8 @@
       </p:input>
       <p:with-param name="null" select="()"/>
     </p:xslt>
+    <!-- TBD: DEBUG/REMOVE -->
+    <p:identity name="final-input"/>
 
     <!-- Create the output xlsx: -->
     <xtlcon:container-to-zip>
@@ -132,7 +142,7 @@
     <p:sink/>
 
     <!-- Create the output xml: -->
-    <p:identity>
+    <!--<p:identity>
       <p:input port="source">
         <p:pipe port="result" step="modify-xlsx-original-input"/>
       </p:input>
@@ -145,8 +155,16 @@
     </p:add-attribute>
     <p:add-attribute attribute-name="timestamp" match="/*">
       <p:with-option name="attribute-value" select="current-dateTime()"/>
-    </p:add-attribute>
-
+    </p:add-attribute>-->
+    
+    <!-- TBD: DEBUG/REMOVE -->
+    <p:identity>
+      <p:input port="source">
+        <p:pipe port="result" step="final-input"/>
+      </p:input>
+    </p:identity>
+    
+    
   </p:declare-step>
 
   <!-- ================================================================== -->

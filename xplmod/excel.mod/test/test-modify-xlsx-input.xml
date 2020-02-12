@@ -3,9 +3,19 @@
  xsi:schemaLocation="http://www.xtpxlib.nl/ns/xoffice ../../../xsd/xlsx-modify.xsd">
   
   <worksheet name="TEST">
+    
+    <row name="NAMEDCELL" >
+      <column name="NAMEDCELL" >
+        <value datatype="string">in the named cell...</value>
+      </column>
+    </row>
+    
     <row index="1">
       <column index="1">
         <value>Upper left-hand corner</value>
+      </column>
+      <column index="2">
+        <value datatype="numeric">6E3</value>
       </column>
     </row>
   </worksheet>
