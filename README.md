@@ -4,11 +4,12 @@
 
 ---------- 
 
-This component contains pipelines for converting Microsoft Office Word (`.docx`) and Excel (`.xlsx`) files into some more manageable XML formats. 
+This component contains pipelines for converting Microsoft Office Word (`.docx`) and Excel (`.xlsx`) files to and from 
+some more manageable XML formats. 
 
 ## Technical information
 
-Component version: V1.0 - 2019-12-18
+Component version: V1.1 - 2020-02-16
 
 Documentation: [`https://xoffice.xtpxlib.org`](https://xoffice.xtpxlib.org)
 
@@ -22,7 +23,11 @@ This component depends on:
 
 ## Version history
 
-**V1.0 - 2019-12-18 (current)**
+**V1.1 - 2020-02-16 (current)**
+
+Added basic support for modifying Excel files and fixed some minor bugs. 
+
+**V1.0 - 2019-12-18**
 
 Initial release
 
