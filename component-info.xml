@@ -11,6 +11,9 @@
   <!-- ================================================================== -->
 
   <releases>
+    <release version="1.1.A" date="2020-02-16">
+      New logo and minor fixes. 
+    </release>
     <release version="1.1" date="2020-02-16">
       Added basic support for modifying Excel files and fixed some minor bugs. 
     </release>

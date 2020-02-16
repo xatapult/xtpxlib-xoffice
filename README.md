@@ -1,4 +1,4 @@
-# `xtpxlib-xoffice`: Xatapult XML Library - Conversions from Word and Excel files into XML
+# `xtpxlib-xoffice`: Xatapult XML Library - Conversions between Word/Excel and XML
 
 **Xatapult Content Engineering - [`http://www.xatapult.com`](http://www.xatapult.com)**
 
@@ -9,7 +9,7 @@ some more manageable XML formats.
 
 ## Technical information
 
-Component version: V1.1 - 2020-02-16
+Component version: V1.1.A - 2020-02-16
 
 Documentation: [`https://xoffice.xtpxlib.org`](https://xoffice.xtpxlib.org)
 
@@ -23,7 +23,11 @@ This component depends on:
 
 ## Version history
 
-**V1.1 - 2020-02-16 (current)**
+**V1.1.A - 2020-02-16 (current)**
+
+New logo and minor fixes. 
+
+**V1.1 - 2020-02-16**
 
 Added basic support for modifying Excel files and fixed some minor bugs. 
 
