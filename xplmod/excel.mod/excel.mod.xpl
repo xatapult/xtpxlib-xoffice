@@ -135,8 +135,6 @@
       </p:input>
       <p:with-param name="null" select="()"/>
     </p:xslt>
-    <!-- TBD: DEBUG/REMOVE -->
-   <!-- <p:identity name="final-input"/>-->
 
     <!-- Create the output xlsx: -->
     <xtlcon:container-to-zip>
@@ -159,14 +157,6 @@
     <p:add-attribute attribute-name="timestamp" match="/*">
       <p:with-option name="attribute-value" select="current-dateTime()"/>
     </p:add-attribute>
-    
-    <!-- TBD: DEBUG/REMOVE -->
-    <!--<p:identity>
-      <p:input port="source">
-        <p:pipe port="result" step="final-input"/>
-      </p:input>
-    </p:identity>-->
-    
     
   </p:declare-step>
 
