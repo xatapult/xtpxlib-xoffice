@@ -20,6 +20,7 @@
   <xsl:include href="../../../../xtpxlib-common/xslmod/general.mod.xsl"/>
   <xsl:include href="../../../../xtpxlib-common/xslmod/href.mod.xsl"/>
   <xsl:include href="../../../xslmod/xoffice.mod.xsl"/>
+  <xsl:include href="../../../xslmod/excel-conversions.mod.xsl"/>
 
   <!-- ================================================================== -->
 
@@ -102,7 +103,15 @@
       <xsl:value-of select="."/>
     </v>
   </xsl:template>
-
+  
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  
+  <xsl:template match="xtlxo:date" mode="mode-handle-cell-contents">
+    <v>
+      <xsl:value-of select="xtlxo:xs-date-to-excel-date(xs:date(.))"/>
+    </v>
+  </xsl:template>
+  
   <!-- ================================================================== -->
   <!-- SUPPORT: -->
 
