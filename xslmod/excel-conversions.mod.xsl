@@ -15,9 +15,9 @@
   <!-- DATES: -->
 
   <xsl:function name="xtlxo:excel-date-to-xs-date" as="xs:date">
-    <!--~ Excel stores dates as an integer with an offset to 1900-01-01. This function converts such an Excel date-as-integer into an xs:date.  -->
+    <!--~ Converts an Excel date integer into an xs:date.  -->
     <xsl:param name="excel-value" as="xs:integer">
-      <!--~ The date-as-integer value coming from Excel.  -->
+      <!--~ The Excel date integer to convert.  -->
     </xsl:param>
 
     <xsl:variable name="duration-string" as="xs:string" select="concat('P', string($excel-value - 2), 'D')"/>
@@ -27,7 +27,10 @@
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   
   <xsl:function name="xtlxo:xs-date-to-excel-date" as="xs:integer">
-    <xsl:param name="date" as="xs:date"/>
+    <!--~ Converts an xs:date into an Excel date integer.  -->
+    <xsl:param name="date" as="xs:date">
+      <!--~ The xs:date to convert.  -->
+    </xsl:param>
     
     <xsl:variable name="duration" as="xs:dayTimeDuration" select="xs:dayTimeDuration($date - $xtlxo:excel-start-date)"/>
     <xsl:sequence select="days-from-duration($duration) + 2"/>
