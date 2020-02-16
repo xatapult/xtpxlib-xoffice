@@ -27,7 +27,7 @@
     <component name="xtpxlib-container"/>
   </dependencies>
 
-  <title>Conversions from Word and Excel files into XML</title>
+  <title>Conversions between Word/Excel and XML</title>
   <summary>
     This component contains pipelines for converting Microsoft Office Word (`.docx`) and Excel (`.xlsx`) files to and from 
     some more manageable XML formats. 
