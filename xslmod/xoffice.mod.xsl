@@ -4,12 +4,14 @@
   xmlns:xtlxo="http://www.xtpxlib.nl/ns/xoffice" xmlns:mso-rels="http://schemas.openxmlformats.org/package/2006/relationships"
   exclude-result-prefixes="#all">
   <!-- ================================================================== -->
-  <!--*	
+  <!--~
 		Library with support code for the MS Office file handling.
 		
 		Depends on the following XSLT modules from the xtpxlib-common component:
 		- general.mod.xsl
 		- href.mod.xsl
+		
+		Yet largely undocumented. Use at your own risk.
 	-->
   
   <!-- ================================================================== -->

@@ -175,5 +175,17 @@
     <xdoc:transform href="$xdoc/code-docgen-dir.xpl" dir="../../xsd/" filter="\.xsd$" header-level="1" filecomponents="2" sublevels="true"/>
 
   </chapter>
-
+  
+  <!-- ================================================================== -->
+  
+  <chapter xml:id="chapter-xslt-modules" xreflabel="XSLT Modules">
+    <title>XSLT Modules</title>
+    
+    <para>The {$component-name} component contains the following XSLT modules.</para>
+    
+    <xdoc:transform href="$xdoc/code-docgen-dir.xpl" dir="../../../xtpxlib-xoffice/xslmod/" filter="\.mod\.xsl$" header-level="1" filecomponents="2"
+      sublevels="true"/>
+    
+  </chapter>
+  
 </book>

@@ -27,6 +27,7 @@
                         <xs:choice>
                           <xs:element name="string" type="xs:string"/>
                           <xs:element name="number" type="xs:double"/>
+                          <xs:element name="date" type="xs:date"/>
                         </xs:choice>
                         <xs:attributeGroup ref="xtlxo:ag-sheet-coordinate"/>
                       </xs:complexType>
