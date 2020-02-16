@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component-info xmlns="http://www.xtpxlib.nl/ns/webdoc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xml="http://www.w3.org/XML/1998/namespace" xsi:schemaLocation="http://www.xtpxlib.nl/ns/webdoc xsd/component-info.xsd" name="xtpxlib-xoffice">
+<component-info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.xtpxlib.nl/ns/webdoc ../xtpxlib-webdoc/xsd/component-info.xsd" xmlns="http://www.xtpxlib.nl/ns/webdoc"
+ name="xtpxlib-xoffice">
   <!-- ================================================================== -->
   <!--
     Component information for this xtpxlib component.
@@ -10,6 +11,9 @@
   <!-- ================================================================== -->
 
   <releases>
+    <release version="1.1" date="2020-02-16">
+      Added basic support for modifying Excel files and fixed some minor bugs. 
+    </release>
     <release version="1.0" date="2019-12-18">
       Initial release
     </release>
@@ -25,8 +29,8 @@
 
   <title>Conversions from Word and Excel files into XML</title>
   <summary>
-    This component contains pipelines for converting Microsoft Office Word (`.docx`) and Excel (`.xlsx`) files into some more manageable XML formats. 
-    It also has a pipeline that inserts values in an existing Excel template file. 
+    This component contains pipelines for converting Microsoft Office Word (`.docx`) and Excel (`.xlsx`) files to and from 
+    some more manageable XML formats. 
   </summary>
   
   <documentation-uri>https://xoffice.xtpxlib.org</documentation-uri>
