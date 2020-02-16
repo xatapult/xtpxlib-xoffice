@@ -1,6 +1,4 @@
-<xlsx-modifications xmlns="http://www.xtpxlib.nl/ns/xoffice"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.xtpxlib.nl/ns/xoffice ../../../xsd/xlsx-modify.xsd">
+<xlsx-modifications xmlns="http://www.xtpxlib.nl/ns/xoffice">
   
   <worksheet name="TEST">
     

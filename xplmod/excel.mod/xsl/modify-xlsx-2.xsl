@@ -19,10 +19,10 @@
 
   <xsl:template match="xtlcon:document/mso-wb:worksheet/mso-wb:sheetData[xs:boolean(@xtlxo:MODIFIED)]"
     xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
+    <!-- We only need to handle modified sections (identified with @xtlxo:MODIFIED="true"). We take this attribute off again. -->
 
     <xsl:copy>
       <xsl:copy-of select="@* except @xtlxo:MODIFIED"/>
-      <xsl:comment> == *** *** == </xsl:comment>
 
       <!-- Take all rows with the same row number together: -->
       <xsl:for-each-group select="mso-wb:row" group-by="xs:integer(@r)">
@@ -37,12 +37,12 @@
           <xsl:for-each-group select="current-group()/mso-wb:c" group-by="@r">
             <xsl:sort select="@r"/>
             <c>
+              <!-- Copy again all attributes of the cells for this coordinate but retain the @t value (type of the cell) of 
+                the one we're actually going to use: -->
               <xsl:copy-of select="current-group()/@* except current-group()/@t"/>
               <xsl:copy-of select="current-group()[1]/@t"/>
               <xsl:copy-of select="current-group()[1]/*"/>
             </c>
-            
-            
           </xsl:for-each-group>
 
         </row>

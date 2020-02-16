@@ -2,7 +2,8 @@
 <xsl:stylesheet version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:xtlxo="http://www.xtpxlib.nl/ns/xoffice" xmlns:mso-wb="http://schemas.openxmlformats.org/spreadsheetml/2006/main"
   xmlns:xtlcon="http://www.xtpxlib.nl/ns/container" xmlns:mso-rels="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
-  xmlns:xtlc="http://www.xtpxlib.nl/ns/common" xmlns:local="#local-aa23fg" exclude-result-prefixes="#all">
+  xmlns:xtlc="http://www.xtpxlib.nl/ns/common" xmlns:local="#local-aa23fg" xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"
+  exclude-result-prefixes="#all">
   <!-- ================================================================== -->
   <!--*	
     Performs a "raw" insertion of the modification data into the worksheets. After this, the worksheet data must still be sorted and made unique!	
@@ -14,6 +15,7 @@
   <xsl:output method="xml" indent="no" encoding="UTF-8"/>
 
   <xsl:mode on-no-match="shallow-copy"/>
+  <xsl:mode name="mode-handle-cell-contents" on-no-match="fail"/>
 
   <xsl:include href="../../../../xtpxlib-common/xslmod/general.mod.xsl"/>
   <xsl:include href="../../../../xtpxlib-common/xslmod/href.mod.xsl"/>
@@ -34,14 +36,14 @@
 
   <!-- ================================================================== -->
 
-  <xsl:template match="xtlcon:document/mso-wb:worksheet/mso-wb:sheetData" xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
+  <xsl:template match="xtlcon:document/mso-wb:worksheet/mso-wb:sheetData">
 
-    
+
     <!-- Get the name of this worksheet and find any modifications for this worksheet: -->
     <xsl:variable name="worksheet-name" as="xs:string" select="local:worksheet-name(..)"/>
     <xsl:variable name="worksheet-modifications" as="element(xtlxo:worksheet)*"
       select="$modification-specification/xtlxo:worksheet[@name eq $worksheet-name]"/>
-    
+
     <xsl:choose>
 
       <!-- When there are any modifications, merge them in: -->
@@ -51,38 +53,17 @@
           <!-- Remark: We mark this sheet data section as modified down here so we can identify modified section in the next pass. 
             Make sure to remove the MODIFIED attribute there! -->
           <xsl:attribute name="xtlxo:MODIFIED" select="true()"/>
-          <xsl:comment>== *** ==</xsl:comment>
 
           <!-- Remark: Make sure the new data comes first... This ensures that in sorting (and removing doubles) the new data gets precedence. -->
           <xsl:for-each select="$worksheet-modifications/xtlxo:row">
             <xsl:variable name="row" as="xs:integer" select="xs:integer(@index)"/>
-            <row r="{@index}">
-
+            <row r="{$row}">
               <xsl:for-each select="xtlxo:column">
                 <xsl:variable name="col" as="xs:integer" select="xs:integer(@index)"/>
-                <xsl:variable name="effective-value-data" as="xs:anyAtomicType+" select="local:get-effective-type-and-value(xtlxo:value)"/>
-                <xsl:variable name="store-as-string" as="xs:boolean" select="$effective-value-data[1]"/>
-                <xsl:variable name="value-string" as="xs:string" select="$effective-value-data[2]"/>
-                
                 <c r="{local:cell-index($row, $col)}">
-                  <xsl:choose>
-                    <xsl:when test="$store-as-string">
-                      <xsl:attribute name="t" select="'inlineStr'"/>
-                      <is>
-                        <t>
-                          <xsl:value-of select="$value-string"/>
-                        </t>
-                      </is>
-                    </xsl:when>
-                    <xsl:otherwise>
-                      <v>
-                        <xsl:value-of select="$value-string"/>
-                      </v>
-                    </xsl:otherwise>
-                  </xsl:choose>
+                  <xsl:apply-templates select="xtlxo:*[1]" mode="mode-handle-cell-contents"/>
                 </c>
               </xsl:for-each>
-
             </row>
           </xsl:for-each>
 
@@ -102,62 +83,28 @@
   </xsl:template>
 
   <!-- ================================================================== -->
-  <!-- SUPPORT: -->
+  <!-- HANDLE CELL CONTENTS: -->
+  <!-- These templates fill the <mso-wb:c> element that holds the cell's contents. -->
 
-  <xsl:function name="local:get-effective-type-and-value" as="xs:anyAtomicType+">
-    <!-- Tries to find out what kind of data should be stored. This is at the end either a string or some numeric type. So when the result
-      is of type xs:string it will be stored as a string, otherwise as something numeric. -->
-    <xsl:param name="value-elm" as="element(xtlxo:value)"/>
-
-
-    <xsl:variable name="datatype" as="xs:string" select="($value-elm/@datatype, 'detect')[1]"/>
-    <xsl:variable name="string-value" as="xs:string" select="string($value-elm)"/>
-    <xsl:variable name="string-value-normalized" as="xs:string" select="normalize-space($string-value)"/>
-    <xsl:choose>
-      
-      <!-- String: -->
-      <xsl:when test="$datatype eq 'string'">
-        <xsl:sequence select="(true(), $string-value)"/>
-      </xsl:when>
-
-      <!-- Numeric: -->
-      <xsl:when test="$datatype eq 'numeric'">
-        <xsl:choose>
-          <xsl:when test="$string-value-normalized castable as xs:double">
-            <xsl:sequence select="(false(), $string-value-normalized)"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:call-template name="xtlc:raise-error">
-              <xsl:with-param name="msg-parts" select="('Value ', xtlc:q($string-value), ' not numeric')"/>
-            </xsl:call-template>
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:when>
-      
-      <!-- Detect: -->
-      <xsl:when test="$datatype eq 'detect'">
-        <xsl:choose>
-          <xsl:when test="$string-value-normalized castable as xs:double">
-            <xsl:sequence select="(false(), $string-value-normalized)"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:sequence select="(true(), $string-value)"/>
-          </xsl:otherwise>  
-        </xsl:choose>
-        
-      </xsl:when>
-
-      <!-- Invalid datatype: -->
-      <xsl:otherwise>
-        <xsl:call-template name="xtlc:raise-error">
-          <xsl:with-param name="msg-parts" select="('Invalid value for @datatype: ' || xtlc:q($datatype))"/>
-        </xsl:call-template>
-      </xsl:otherwise>
-    </xsl:choose>
-
-  </xsl:function>
+  <xsl:template match="xtlxo:string" mode="mode-handle-cell-contents">
+    <xsl:attribute name="t" select="'inlineStr'"/>
+    <is>
+      <t>
+        <xsl:value-of select="."/>
+      </t>
+    </is>
+  </xsl:template>
 
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <xsl:template match="xtlxo:number" mode="mode-handle-cell-contents">
+    <v>
+      <xsl:value-of select="."/>
+    </v>
+  </xsl:template>
+
+  <!-- ================================================================== -->
+  <!-- SUPPORT: -->
 
   <xsl:function name="local:worksheet-name" as="xs:string">
     <xsl:param name="worksheet" as="element(mso-wb:worksheet)"/>

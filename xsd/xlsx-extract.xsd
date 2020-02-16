@@ -2,9 +2,12 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0"
   targetNamespace="http://www.xtpxlib.nl/ns/xoffice" xmlns:xtlxo="http://www.xtpxlib.nl/ns/xoffice">
   <xs:annotation>
-    <xs:documentation>Schema for the result of an xlsx file extraction to XML (by the extract-xlsx pipeline in the XProc module xplmod/excel.mod)</xs:documentation>
+    <xs:documentation>Schema for the result of an Excel (`.xlsx`) data extraction to XML. Format produced by the `[xtlxo:extract-xlsx](%excel.mod.xpl-xtlxo_extract-xlsx)` pipeline.</xs:documentation>
   </xs:annotation>
   <xs:element name="workbook">
+    <xs:annotation>
+      <xs:documentation>Root element of the Excel workbook extraction XML result.</xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element name="properties">

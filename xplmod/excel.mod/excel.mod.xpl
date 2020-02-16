@@ -47,7 +47,10 @@
 
   <p:declare-step type="xtlxo:modify-xlsx" name="step-modify-xlsx">
 
-    <p:documentation>TBD</p:documentation>
+    <p:documentation>
+      Takes an input/template Excel (`.xlsx`)  and a [modification specification](%xlsx-modify.xsd) and from this creates a 
+      new modified Excel file that merges these two sources.
+    </p:documentation>
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
     <!-- SETUP: -->
@@ -57,15 +60,15 @@
     </p:input>
 
     <p:option name="xlsx-href-in" required="true">
-      <p:documentation>URI of the input xlsx file to process</p:documentation>
+      <p:documentation>URI of the input (template) `.xlsx` file to process</p:documentation>
     </p:option>
 
     <p:option name="xlsx-href-out" required="true">
-      <p:documentation>URI of the output xlsx file.</p:documentation>
+      <p:documentation>URI of the output `.xlsx` file.</p:documentation>
     </p:option>
 
     <p:output port="result" primary="true" sequence="false">
-      <p:documentation>The output is identical to the input but with `@timestamp`, `@`xlsx-href-in` and `@xlsx-href-out` added to 
+      <p:documentation>The output is identical to the input but with `@timestamp`, `@xlsx-href-in` and `@xlsx-href-out` added to 
         the root element.</p:documentation>
     </p:output>
 
@@ -133,7 +136,7 @@
       <p:with-param name="null" select="()"/>
     </p:xslt>
     <!-- TBD: DEBUG/REMOVE -->
-    <p:identity name="final-input"/>
+   <!-- <p:identity name="final-input"/>-->
 
     <!-- Create the output xlsx: -->
     <xtlcon:container-to-zip>
@@ -142,7 +145,7 @@
     <p:sink/>
 
     <!-- Create the output xml: -->
-    <!--<p:identity>
+    <p:identity>
       <p:input port="source">
         <p:pipe port="result" step="modify-xlsx-original-input"/>
       </p:input>
@@ -155,14 +158,14 @@
     </p:add-attribute>
     <p:add-attribute attribute-name="timestamp" match="/*">
       <p:with-option name="attribute-value" select="current-dateTime()"/>
-    </p:add-attribute>-->
+    </p:add-attribute>
     
     <!-- TBD: DEBUG/REMOVE -->
-    <p:identity>
+    <!--<p:identity>
       <p:input port="source">
         <p:pipe port="result" step="final-input"/>
       </p:input>
-    </p:identity>
+    </p:identity>-->
     
     
   </p:declare-step>

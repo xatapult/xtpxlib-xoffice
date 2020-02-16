@@ -32,7 +32,6 @@
   <chapter xml:id="chapter-description">
     <title>Description</title>
 
-
     <para>Microsoft Office files are actually zip files with a lot of XML and other stuff inside. It is remarkably difficult to get to the actual
       contents of them: What is in Excel cell A1B2 or what is written in this Word document. To help with this, the <code>{$component-name}</code>
       component contains XProc (1.0) pipelines to extract contents from Excel (<code>.xlsx</code>) and Word (<code>.docx</code>) files:</para>
@@ -43,9 +42,9 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
     <sect1>
-      <title>Converting Excel (<code>.xlsx</code>)</title>
+      <title>Converting from Excel (<code>.xlsx</code>)</title>
 
-      <para>The <code><link linkend="excel.mod.xpl-xtlxo_extract-xlsx">xtlxo:extract-xlsx</link></code> pipleine takes an Excel <code>.xlsx</code>
+      <para>The <code><link linkend="excel.mod.xpl-xtlxo_extract-xlsx">xtlxo:extract-xlsx</link></code> pipeline takes an Excel <code>.xlsx</code>
         file and turns this into much more manageable XML. The schema for the resulting XML format is <link linkend="xlsx-extract.xsd"
         >here</link>.</para>
 
@@ -67,7 +66,65 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
     <sect1>
-      <title>Converting Word (<code>.docx</code>)</title>
+      <title>Converting to Excel (<code>.xlsx</code>)</title>
+
+      <para>The <code><link linkend="excel.mod.xpl-xtlxo_modify-xlsx">xtlxo:modify-xlsx</link></code> pipeline takes a template Excel
+          <code>.xlsx</code> file and changes this. The result will be written to a new Excel file.</para>
+      <para role="keep-with-next">It has the following features:</para>
+      <itemizedlist>
+        <listitem>
+          <para>You can change the individual worksheets in the Excel file. A worksheet is identified by its <emphasis>name</emphasis> (the name that
+            is visible on its tab at the bottom of the Excel screen).</para>
+        </listitem>
+        <listitem>
+          <para>You can identify a cell on a worksheet in three ways:</para>
+          <itemizedlist>
+            <listitem>
+              <para>As a direct numeric row/column index</para>
+            </listitem>
+            <listitem>
+              <para>As identified by an Excel <emphasis>name</emphasis>. You can use this to identify a cell, by row, column, or both. An Excel name
+                can reference an area (or even multiple areas) on a worksheet. To work around this the most upper-left cell in the named area(s) is
+                used.</para>
+            </listitem>
+            <listitem>
+              <para>Using an Excel name (like above) and adding a numeric offset.</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+        <listitem>
+          <para>You can insert a numeric or string value in a cell. </para>
+        </listitem>
+        <listitem>
+          <para>You have to specify the type of the data to insert (so you can, for instance, insert a numeric value as a string if necessary)</para>
+        </listitem>
+      </itemizedlist>
+
+      <para role="keep-with-next">There are some things you need to take care of creating the template Excel file:</para>
+      <itemizedlist>
+        <listitem>
+          <para>If you need formatting in a cell you're going to fill with this pipeline (like colors, borders, etc.) there <emphasis>must</emphasis>
+            be some contents in the cell. Since this will be overwritten it should not be a problem.</para>
+        </listitem>
+        <listitem>
+          <para>The same is true for a cell you're referencing by name: It must contain some contents. If you need this contents to be invisible you
+            can always use a single space character.</para>
+        </listitem>
+        <listitem>
+          <para>Names of worksheets and cells are case-sensitive.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para role="keep-with-next">The XML for specifying the changes to the Excel file is quite simple. The schema can be found <link
+          linkend="xlsx-modify.xsd">here</link>. A simple example:</para>
+
+      <programlisting><xi:include href="listings/example-modify-xlsx-input.xml" parse="text"/></programlisting>
+    </sect1>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    <sect1>
+      <title>Converting from Word (<code>.docx</code>)</title>
 
       <para>The <code><link linkend="word.mod.xpl-xtlxo_extract-docx">xtlxo:extract-docx</link></code> pipeline takes a Word (<code>.docx</code>) file
         and turns this into an understandable XML format. This format is more experimental than the format created by the Excel conversion and there
@@ -91,7 +148,7 @@
       <para>There is an experimental pipeline <code><link linkend="word.mod.xpl-xtlxo_create-docx">xtlxo:create-docx</link></code> to create Word
         documents (using a template Word document for things like styles, margins, etc.). If you feed this the same kind of XML you get from
             <code><link linkend="word.mod.xpl-xtlxo_extract-docx">xtlxo:extract-docx</link></code>, the result <emphasis>should</emphasis> be a valid,
-        useable Word document with the new text in it. Use at your own risk.</para>
+        useable Word document with the new text in it. It's currently incomplete (it doesn't do tables for instance). Use at your own risk.</para>
 
     </sect1>
 

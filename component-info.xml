@@ -26,6 +26,7 @@
   <title>Conversions from Word and Excel files into XML</title>
   <summary>
     This component contains pipelines for converting Microsoft Office Word (`.docx`) and Excel (`.xlsx`) files into some more manageable XML formats. 
+    It also has a pipeline that inserts values in an existing Excel template file. 
   </summary>
   
   <documentation-uri>https://xoffice.xtpxlib.org</documentation-uri>

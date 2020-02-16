@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.xtpxlib.nl/ns/xoffice"
   xmlns:xtlxo="http://www.xtpxlib.nl/ns/xoffice">
+  <xs:annotation>
+    <xs:documentation>Schema for the modification spefication of Excel (`.xlsx`) files. Format used by the `[xtlxo:modify-xlsx](%excel.mod.xpl-xtlxo_modify-xlsx)` pipeline.</xs:documentation>
+  </xs:annotation>
   <xs:element name="xlsx-modifications">
+    <xs:annotation>
+      <xs:documentation>Root element of the Excel modifications specification.</xs:documentation>
+    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element maxOccurs="unbounded" minOccurs="0" name="worksheet">
@@ -9,29 +15,19 @@
             <xs:sequence>
               <xs:element maxOccurs="unbounded" minOccurs="0" name="row">
                 <xs:annotation>
-                  <xs:documentation>Definition of the row for the value insertion. Either @name or @index must defined, not both.</xs:documentation>
+                  <xs:documentation>Definition of the row for the value insertion. Either @name or @index must defined.</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="column">
                       <xs:annotation>
-                        <xs:documentation>Definition of the column for the value insertion. Either @name or @index must defined, not both.</xs:documentation>
+                        <xs:documentation>Definition of the column for the value insertion. Either @name or @index must defined.</xs:documentation>
                       </xs:annotation>
                       <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="value">
-                            <xs:annotation>
-                              <xs:documentation>The value to insert.</xs:documentation>
-                            </xs:annotation>
-                            <xs:complexType>
-                              <xs:simpleContent>
-                                <xs:extension base="xs:string">
-                                  <xs:attribute default="detect" name="datatype" type="xtlxo:t-datatype"/>
-                                </xs:extension>
-                              </xs:simpleContent>
-                            </xs:complexType>
-                          </xs:element>
-                        </xs:sequence>
+                        <xs:choice>
+                          <xs:element name="string" type="xs:string"/>
+                          <xs:element name="number" type="xs:double"/>
+                        </xs:choice>
                         <xs:attributeGroup ref="xtlxo:ag-sheet-coordinate"/>
                       </xs:complexType>
                     </xs:element>
@@ -77,11 +73,4 @@
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
-  <xs:simpleType name="t-datatype">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="detect"/>
-      <xs:enumeration value="string"/>
-      <xs:enumeration value="numeric"/>
-    </xs:restriction>
-  </xs:simpleType>
 </xs:schema>
