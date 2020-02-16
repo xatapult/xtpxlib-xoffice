@@ -9,7 +9,7 @@ some more manageable XML formats.
 
 ## Technical information
 
-Component version: V1.1.A - 2020-02-16
+Component version: V1.1.B - 2020-02-16
 
 Documentation: [`https://xoffice.xtpxlib.org`](https://xoffice.xtpxlib.org)
 
@@ -23,7 +23,11 @@ This component depends on:
 
 ## Version history
 
-**V1.1.A - 2020-02-16 (current)**
+**V1.1.B - 2020-02-16 (current)**
+
+Added the option to insert dates into Excel sheets and a small library for converting dates between Excel and xs:date formats. 
+
+**V1.1.A - 2020-02-16**
 
 New logo and minor fixes. 
 
