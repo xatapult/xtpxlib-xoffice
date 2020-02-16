@@ -1,0 +1,24 @@
+<xlsx-modifications xmlns="http://www.xtpxlib.nl/ns/xoffice">
+  
+  <worksheet name="TEST">
+    
+    <row name="NAMEDCELL" >
+      <column name="NAMEDCELL" >
+        <number>12345</number>
+      </column>
+      <column name="NAMEDCELL" offset="1">
+        <string>One to the right</string>
+      </column>
+    </row>
+    
+    <row index="1">
+      <column index="1">
+        <string>Upper left-hand corner</string>
+      </column>
+      <column index="2">
+        <number>6E3</number>
+      </column>
+    </row>
+  </worksheet>
+  
+</xlsx-modifications>

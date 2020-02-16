@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="21.1">
+<project version="22.0">
     <meta>
         <filters directoryPatterns="" filePatterns="" positiveFilePatterns="" showHiddenFiles="false"/>
         <options>
-            <serialized version="21.1" xml:space="preserve">
+            <serialized version="22.0" xml:space="preserve">
                 <serializableOrderedMap>
                     <entry>
                         <String>enable.project.master.files.support</String>
@@ -14,16 +14,61 @@
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="url">
-                                    <String>../../xtpxlib-container/doc/source/xtpxlib-container-componentdoc.xml</String>
+                                    <String>../xplmod/excel.mod/xsl/modify-xlsx-1.xsl</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
-                                        <String>generate-componentdoc</String>
+                                        <String>test-modify-xlsx</String>
                                     </list>
                                 </field>
                                 <field name="scenarioTypes">
                                     <list>
                                         <String>XPROC</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>../xplmod/excel.mod/xsl/modify-xlsx-2.xsl</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>test-modify-xlsx</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XPROC</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>../xplmod/excel.mod/test/test-modify-xlsx-input.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>test-modify-xlsx</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XPROC</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
                                     </list>
                                 </field>
                             </scenarioAssociation>
@@ -41,6 +86,91 @@
                                         <String>XPROC</String>
                                     </list>
                                 </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>../xplmod/excel.mod/xsl/modify-xlsx-prepare.xsl</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>test-modify-xlsx</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XPROC</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>../xplmod/excel.mod/excel.mod.xpl</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>test-modify-xlsx</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XPROC</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>../xplmod/excel.mod/test/test-modify-xlsx.xpl</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>test-modify-xlsx</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XPROC</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>../../xtpxlib-container/doc/source/xtpxlib-container-componentdoc.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>generate-componentdoc</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XPROC</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
+                                    </list>
+                                </field>
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
@@ -54,6 +184,11 @@
                                 <field name="scenarioTypes">
                                     <list>
                                         <String>XPROC</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
                                     </list>
                                 </field>
                             </scenarioAssociation>
@@ -149,6 +284,187 @@
                                 </field>
                                 <field name="openInEditor">
                                     <Boolean>false</Boolean>
+                                </field>
+                                <field name="showInHTMLPane">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="showInXMLPane">
+                                    <Boolean>true</Boolean>
+                                </field>
+                                <field name="showInSVGPane">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="showInResultSetPane">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="useXSLTInput">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="xsltParams">
+                                    <list/>
+                                </field>
+                                <field name="cascadingStylesheets">
+                                    <String-array/>
+                                </field>
+                                <field name="xslTransformer">
+                                    <String>Add-on for Calabash XProc Engine</String>
+                                </field>
+                                <field name="extensionURLs">
+                                    <String-array/>
+                                </field>
+                            </xprocScenario>
+                            <xprocScenario>
+                                <field name="inputPorts">
+                                    <xprocInputPort-array>
+                                        <xprocInputPort>
+                                            <field name="portName">
+                                                <String>source</String>
+                                            </field>
+                                            <field name="urls">
+                                                <String-array/>
+                                            </field>
+                                        </xprocInputPort>
+                                    </xprocInputPort-array>
+                                </field>
+                                <field name="outputPorts">
+                                    <xprocOutputPort-array>
+                                        <xprocOutputPort>
+                                            <field name="portName">
+                                                <String>result</String>
+                                            </field>
+                                            <field name="url">
+                                                <String>${TMP}/test-modify-xlsx-result.xml</String>
+                                            </field>
+                                            <field name="showInSequenceView">
+                                                <Boolean>false</Boolean>
+                                            </field>
+                                        </xprocOutputPort>
+                                    </xprocOutputPort-array>
+                                </field>
+                                <field name="xprocOptions">
+                                    <xprocOption-array>
+                                        <xprocOption>
+                                            <field name="namespaceURI">
+                                                <String></String>
+                                            </field>
+                                            <field name="localName">
+                                                <String>debug</String>
+                                            </field>
+                                            <field name="value">
+                                                <null/>
+                                            </field>
+                                        </xprocOption>
+                                        <xprocOption>
+                                            <field name="namespaceURI">
+                                                <String></String>
+                                            </field>
+                                            <field name="localName">
+                                                <String>docx-href</String>
+                                            </field>
+                                            <field name="value">
+                                                <null/>
+                                            </field>
+                                        </xprocOption>
+                                        <xprocOption>
+                                            <field name="namespaceURI">
+                                                <String></String>
+                                            </field>
+                                            <field name="localName">
+                                                <String>specification-href</String>
+                                            </field>
+                                            <field name="value">
+                                                <null/>
+                                            </field>
+                                        </xprocOption>
+                                        <xprocOption>
+                                            <field name="namespaceURI">
+                                                <String></String>
+                                            </field>
+                                            <field name="localName">
+                                                <String>xlsx-href-in</String>
+                                            </field>
+                                            <field name="value">
+                                                <null/>
+                                            </field>
+                                        </xprocOption>
+                                        <xprocOption>
+                                            <field name="namespaceURI">
+                                                <String></String>
+                                            </field>
+                                            <field name="localName">
+                                                <String>xlsx-href-out</String>
+                                            </field>
+                                            <field name="value">
+                                                <null/>
+                                            </field>
+                                        </xprocOption>
+                                    </xprocOption-array>
+                                </field>
+                                <field name="xprocParameters">
+                                    <xprocParameterPort-array>
+                                        <xprocParameterPort>
+                                            <field name="portName">
+                                                <String>*</String>
+                                            </field>
+                                            <field name="parameters">
+                                                <xprocParameter-array/>
+                                            </field>
+                                        </xprocParameterPort>
+                                    </xprocParameterPort-array>
+                                </field>
+                                <field name="advancedOptionsMap">
+                                    <null/>
+                                </field>
+                                <field name="name">
+                                    <String>test-modify-xlsx</String>
+                                </field>
+                                <field name="baseURL">
+                                    <null/>
+                                </field>
+                                <field name="footerURL">
+                                    <null/>
+                                </field>
+                                <field name="fOPMethod">
+                                    <null/>
+                                </field>
+                                <field name="fOProcessorName">
+                                    <null/>
+                                </field>
+                                <field name="headerURL">
+                                    <null/>
+                                </field>
+                                <field name="inputXSLURL">
+                                    <String>file:/C:/Data/Erik/work/xatapult/xtpxlib-xoffice/xplmod/excel.mod/test/test-modify-xlsx.xpl</String>
+                                </field>
+                                <field name="inputXMLURL">
+                                    <String></String>
+                                </field>
+                                <field name="defaultScenario">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="isFOPPerforming">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="type">
+                                    <String>XPROC</String>
+                                </field>
+                                <field name="saveAs">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="openInBrowser">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="outputResource">
+                                    <null/>
+                                </field>
+                                <field name="openOtherLocationInBrowser">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="locationToOpenInBrowserURL">
+                                    <String>${TMP}/modify-xlsx-result.xlsx</String>
+                                </field>
+                                <field name="openInEditor">
+                                    <Boolean>true</Boolean>
                                 </field>
                                 <field name="showInHTMLPane">
                                     <Boolean>false</Boolean>

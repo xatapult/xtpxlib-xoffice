@@ -8,7 +8,7 @@
 		Library with support code for the MS Office file handling.
 		
 		Depends on the following XSLT modules from the xtpxlib-common component:
-		- general.mod-xsl
+		- general.mod.xsl
 		- href.mod.xsl
 	-->
   

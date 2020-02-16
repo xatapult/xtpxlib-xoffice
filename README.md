@@ -5,6 +5,7 @@
 ---------- 
 
 This component contains pipelines for converting Microsoft Office Word (`.docx`) and Excel (`.xlsx`) files into some more manageable XML formats. 
+It also has a pipeline that inserts values in an existing Excel template file. 
 
 ## Technical information
 
