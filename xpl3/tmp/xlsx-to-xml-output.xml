@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbook href="file:///C:/Data/Erik/work/xatapult/xtpxlib-xoffice/test/test.xlsx"
+          timestamp="2023-07-13T15:59:05.1583122+02:00"
+          xmlns="http://www.xtpxlib.nl/ns/xoffice">
+   <properties>
+      <property name="creator"
+                type="core">
+         <value>Erik Siegel</value>
+      </property>
+      <property name="lastModifiedBy"
+                type="core">
+         <value>Erik Siegel</value>
+      </property>
+      <property name="created"
+                type="core">
+         <value>2014-12-01T07:20:33Z</value>
+      </property>
+      <property name="modified"
+                type="core">
+         <value>2017-03-07T13:22:53Z</value>
+      </property>
+      <property name="Application"
+                type="extended">
+         <value>Microsoft Excel</value>
+      </property>
+      <property name="DocSecurity"
+                type="extended">
+         <value>0</value>
+      </property>
+      <property name="ScaleCrop"
+                type="extended">
+         <value>false</value>
+      </property>
+      <property name="HeadingPairs"
+                type="extended">
+         <value>Werkbladen</value>
+         <value>3</value>
+         <value>Benoemde bereiken</value>
+         <value>14</value>
+      </property>
+      <property name="TitlesOfParts"
+                type="extended">
+         <value>Blad1</value>
+         <value>Blad1 (2)</value>
+         <value>Blad2</value>
+         <value>'Blad1 (2)'!BOTTOMLINES</value>
+         <value>BOTTOMLINES</value>
+         <value>'Blad1 (2)'!CUSTOMERID</value>
+         <value>CUSTOMERID</value>
+         <value>'Blad1 (2)'!INFORMATIONLINES</value>
+         <value>INFORMATIONLINES</value>
+         <value>'Blad1 (2)'!MONTH</value>
+         <value>MONTH</value>
+         <value>'Blad1 (2)'!TIMESHEETLINES</value>
+         <value>TIMESHEETLINES</value>
+         <value>'Blad1 (2)'!TOPLINES</value>
+         <value>TOPLINES</value>
+         <value>'Blad1 (2)'!YEAR</value>
+         <value>YEAR</value>
+      </property>
+      <property name="Company"
+                type="extended">
+         <value>Xatapult</value>
+      </property>
+      <property name="LinksUpToDate"
+                type="extended">
+         <value>false</value>
+      </property>
+      <property name="SharedDoc"
+                type="extended">
+         <value>false</value>
+      </property>
+      <property name="HyperlinksChanged"
+                type="extended">
+         <value>false</value>
+      </property>
+      <property name="AppVersion"
+                type="extended">
+         <value>16.0300</value>
+      </property>
+   </properties>
+   <worksheet name="Blad1">
+      <row index="1">
+         <cell index="1"
+               ref="A1"
+               name="MONTH">
+            <value>Maand:</value>
+         </cell>
+         <cell index="2"
+               ref="B1">
+            <value>1</value>
+            <comment>
+               <span class="b">Erik Siegel:</span>
+Commentaar <span class="b">Yeah</span> !!!</comment>
+         </cell>
+      </row>
+      <row index="2">
+         <cell index="1"
+               ref="A2"
+               name="YEAR">
+            <value>Jaar:</value>
+         </cell>
+         <cell index="2"
+               ref="B2">
+            <value>2015</value>
+         </cell>
+      </row>
+      <row index="3">
+         <cell index="1"
+               ref="A3"
+               name="CUSTOMERID">
+            <value>Klant id</value>
+         </cell>
+         <cell index="2"
+               ref="B3">
+            <value>test-customer-1</value>
+         </cell>
+      </row>
+      <row index="5">
+         <cell index="1"
+               ref="A5"
+               name="INFORMATIONLINES">
+            <value>Information lines:</value>
+         </cell>
+      </row>
+      <row index="8">
+         <cell index="1"
+               ref="A8"
+               name="TOPLINES">
+            <value>Top lines</value>
+         </cell>
+      </row>
+      <row index="11">
+         <cell index="1"
+               ref="A11"
+               name="BOTTOMLINES">
+            <value>Bottom lines:</value>
+         </cell>
+      </row>
+      <row index="14">
+         <cell index="1"
+               ref="A14"
+               name="TIMESHEETLINES">
+            <value>Date</value>
+         </cell>
+         <cell index="2"
+               ref="B14">
+            <value>Location</value>
+         </cell>
+         <cell index="3"
+               ref="C14">
+            <value>Description</value>
+         </cell>
+         <cell index="4"
+               ref="D14">
+            <value>Remarks</value>
+         </cell>
+         <cell index="5"
+               ref="E14">
+            <value>Costs</value>
+         </cell>
+         <cell index="6"
+               ref="F14">
+            <value>Total</value>
+         </cell>
+         <cell index="7"
+               ref="G14">
+            <value>PRJ1</value>
+         </cell>
+         <cell index="8"
+               ref="H14">
+            <value>PRJ2</value>
+         </cell>
+         <cell index="9"
+               ref="I14">
+            <value>PRJ3</value>
+         </cell>
+         <cell index="10"
+               ref="J14">
+            <value>PRJ4</value>
+         </cell>
+         <cell index="11"
+               ref="K14">
+            <value>PRJ5</value>
+         </cell>
+      </row>
+      <row index="15">
+         <cell index="3"
+               ref="C15">
+            <value>Total</value>
+         </cell>
+      </row>
+      <row index="16">
+         <cell index="1"
+               ref="A16">
+            <value>42005</value>
+         </cell>
+         <cell index="2"
+               ref="B16">
+            <value>Groningen</value>
+         </cell>
+         <cell index="3"
+               ref="C16">
+            <value>Werk</value>
+         </cell>
+         <cell index="6"
+               ref="F16">
+            <value>5</value>
+            <formula>SUM(G16:K16)</formula>
+         </cell>
+         <cell index="7"
+               ref="G16">
+            <value>2</value>
+         </cell>
+         <cell index="8"
+               ref="H16">
+            <value>3</value>
+         </cell>
+      </row>
+   </worksheet>
+   <worksheet name="Blad1 (2)">
+      <row index="1">
+         <cell index="1"
+               ref="A1"
+               name="MONTH">
+            <value>Maand:</value>
+         </cell>
+         <cell index="2"
+               ref="B1">
+            <value>1</value>
+         </cell>
+      </row>
+      <row index="2">
+         <cell index="1"
+               ref="A2"
+               name="YEAR">
+            <value>Jaar:</value>
+         </cell>
+         <cell index="2"
+               ref="B2">
+            <value>2015</value>
+         </cell>
+      </row>
+      <row index="3">
+         <cell index="1"
+               ref="A3"
+               name="CUSTOMERID">
+            <value>Klant id</value>
+         </cell>
+         <cell index="2"
+               ref="B3">
+            <value>test-customer-1</value>
+         </cell>
+      </row>
+      <row index="5">
+         <cell index="1"
+               ref="A5"
+               name="INFORMATIONLINES">
+            <value>Information lines:</value>
+         </cell>
+      </row>
+      <row index="8">
+         <cell index="1"
+               ref="A8"
+               name="TOPLINES">
+            <value>Top lines</value>
+         </cell>
+      </row>
+      <row index="11">
+         <cell index="1"
+               ref="A11"
+               name="BOTTOMLINES">
+            <value>Bottom lines:</value>
+         </cell>
+      </row>
+      <row index="14">
+         <cell index="1"
+               ref="A14"
+               name="TIMESHEETLINES">
+            <value>Date</value>
+         </cell>
+         <cell index="2"
+               ref="B14">
+            <value>Location</value>
+         </cell>
+         <cell index="3"
+               ref="C14">
+            <value>Description</value>
+         </cell>
+         <cell index="4"
+               ref="D14">
+            <value>Remarks</value>
+         </cell>
+         <cell index="5"
+               ref="E14">
+            <value>Costs</value>
+         </cell>
+         <cell index="6"
+               ref="F14">
+            <value>Total</value>
+         </cell>
+         <cell index="7"
+               ref="G14">
+            <value>PRJ1</value>
+         </cell>
+         <cell index="8"
+               ref="H14">
+            <value>PRJ2</value>
+         </cell>
+         <cell index="9"
+               ref="I14">
+            <value>PRJ3</value>
+         </cell>
+         <cell index="10"
+               ref="J14">
+            <value>PRJ4</value>
+         </cell>
+         <cell index="11"
+               ref="K14">
+            <value>PRJ5</value>
+         </cell>
+      </row>
+      <row index="15">
+         <cell index="3"
+               ref="C15">
+            <value>Total</value>
+         </cell>
+      </row>
+      <row index="16">
+         <cell index="1"
+               ref="A16">
+            <value>42005</value>
+         </cell>
+         <cell index="2"
+               ref="B16">
+            <value>Groningen</value>
+         </cell>
+         <cell index="3"
+               ref="C16">
+            <value>Werk</value>
+         </cell>
+         <cell index="7"
+               ref="G16">
+            <value>2</value>
+         </cell>
+      </row>
+   </worksheet>
+   <worksheet name="Blad2">
+      <row index="1">
+         <cell index="1"
+               ref="A1">
+            <value>Dit is <span class="b">bold</span> en dit is <span class="u">underline</span> en dit is <span class="i">italic</span>
+            </value>
+         </cell>
+      </row>
+      <row index="2">
+         <cell index="1"
+               ref="A2">
+            <value>En dit is alles, YEAH</value>
+         </cell>
+      </row>
+   </worksheet>
+</workbook>
