@@ -13,9 +13,9 @@
   
   <xsl:output method="xml" indent="no" encoding="UTF-8"/>
   
-  <xsl:include href="../../../../xtpxlib-common/xslmod/general.mod.xsl"/>
-  <xsl:include href="../../../../xtpxlib-common/xslmod/href.mod.xsl"/>
-  <xsl:include href="../../../xslmod/xoffice.mod.xsl"/>
+  <xsl:include href="../../../xtpxlib-common/xslmod/general.mod.xsl"/>
+  <xsl:include href="../../../xtpxlib-common/xslmod/href.mod.xsl"/>
+  <xsl:include href="../../xslmod/xoffice.mod.xsl"/>
   
   <xsl:variable name="extracted-office-xml" as="element(xtlcon:document-container)" select="/*"/>
   

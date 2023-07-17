@@ -11,8 +11,7 @@
   <!-- ======================================================================= -->
   <!-- IMPORTS: -->
 
-  <p:import href="../../xtpxlib-container/xpl3mod/zip-to-container/zip-to-container.xpl"/>
-  <p:import href="shared/xlsx-container-to-xml.xpl"></p:import>
+  <p:import href="../xpl3mod/xoffice.mod.xpl"></p:import>
 
   <!-- ======================================================================= -->
   <!-- DEVELOPMENT SETTINGS: -->
@@ -37,11 +36,8 @@
   <!-- ================================================================== -->
   <!-- MAIN: -->
 
-  <!-- Extract the Excel document into a container (also treat these weird .rels files as XML): -->
-  <xtlcon:zip-to-container href-source-zip="{$xlsx-href}">
-    <p:with-option name="override-content-types" select="[ ['\.rels$', 'text/xml'] ]"></p:with-option>
-  </xtlcon:zip-to-container>
-    
-  <xtlxo:xlsx-container-to-xml/>
+  <!-- Get an xo container and covert it: -->
+  <xtlxo:get-xo-container href="{$xlsx-href}"/>
+  <xtlxo:xlsx-xo-container-to-xml/>
 
 </p:declare-step>
