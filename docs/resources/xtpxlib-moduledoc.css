@@ -15,12 +15,14 @@ pre {
 
 div.sidebar,
 div.warning,
-div.note {
+div.note,
+div.tip, 
+div.caution {
   border: thin black solid;
   padding: 10px;
 }
 
-div.warning {
+div.warning, div.caution {
   background-color: yellow;
 }
 
