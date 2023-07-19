@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc" xmlns:c="http://www.w3.org/ns/xproc-step" xmlns:map="http://www.w3.org/2005/xpath-functions/map"
-  xmlns:array="http://www.w3.org/2005/xpath-functions/array" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:local="#local.fk4_fbn_cyb"
-  xmlns:xtlxo="http://www.xtpxlib.nl/ns/xoffice" version="3.0" exclude-inline-prefixes="#all" name="xlsx-to-xml" type="xtlxo:xlsx-to-xml">
+  xmlns:array="http://www.w3.org/2005/xpath-functions/array" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:local="#local.fk4_fbn_cybx"
+  xmlns:xtlxo="http://www.xtpxlib.nl/ns/xoffice" version="3.0" exclude-inline-prefixes="#all" name="docx-to-xml" type="xtlxo:docx-to-xml">
 
   <p:documentation>
-    Extracts the contents of an Excel (`.xlsx`) file in a more useable [XML format](%xlsx-extract.xsd).
+    Extracts the contents of a Word (`.docx`) file in a more useable XML format (unspecified). Somewhat experimental and unfinished!
   </p:documentation>
 
   <!-- ======================================================================= -->
@@ -28,15 +28,15 @@
   <!-- OPTIONS: -->
 
   <p:option name="xlsx-href" as="xs:string" required="true" use-when="not($develop)">
-    <p:documentation>Document reference of the `.xlsx` file to process (must have `file://` in front).</p:documentation>
+    <p:documentation>Document reference of the `.docx` file to process (must have `file://` in front).</p:documentation>
   </p:option>
-  <p:option name="xlsx-href" as="xs:string" required="false" use-when="$develop" select="resolve-uri('../test/test.xlsx', static-base-uri())"/>
+  <p:option name="xlsx-href" as="xs:string" required="false" use-when="$develop" select="resolve-uri('../test/test.docx', static-base-uri())"/>
 
   <!-- ================================================================== -->
   <!-- MAIN: -->
 
   <!-- Get an xo container and convert it: -->
   <xtlxo:get-xo-container href="{$xlsx-href}"/>
-  <xtlxo:xlsx-xo-container-to-xml/>
+  <xtlxo:docx-xo-container-to-xml/>
 
 </p:declare-step>

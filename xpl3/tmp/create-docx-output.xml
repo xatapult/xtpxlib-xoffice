@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document timestamp="2023-07-19T08:22:09.22+02:00" docx-href-out="file:///C:/Data/Erik/work/xatapult/xtpxlib-xoffice/xpl3/tmp/create-docx-result.docx" docx-href-in="file:///C:/Data/Erik/work/xatapult/xtpxlib-xoffice/test/test-xtp-template.docx" dref="" xmlns="http://www.xtpxlib.nl/ns/xoffice">
+   
+   <p class="Huisstijl" xml:space="preserve">TEST DOCUMENT CREATED FROM XML</p>
+  
+  
+   <p xml:space="preserve">Dit is een test document voor de omzetting van Word docx bestanden naar XML.</p>
+   <p xml:space="preserve">Stukje <span class="b">bold</span> en <span class="i">italic</span> en <span class="u">onderstreept</span> en <span class="b i u">alles</span>.</p>
+   <p xml:space="preserve">Stukje in <span class="CodeTekst">codetekst</span> en <span class="b CodeTekst">codetekst bold</span><span class="CodeTekst"> …</span></p>
+   <p class="Kop1" xml:space="preserve">Eerste header</p>
+   <p xml:space="preserve">Tekst na eerste header.</p>
+   <p xml:space="preserve"/>
+   <p class="LijstAlinea" xml:space="preserve">Dit is een lijst met “ES” stijl bullets</p>
+   <p class="LijstAlinea" xml:space="preserve">Nog één</p>
+   <p class="LijstAlinea" indent-left="567" xml:space="preserve">Indent 1</p>
+   <p class="LijstAlinea" indent-left="850" xml:space="preserve">Indent 2</p>
+   <p class="LijstAlinea" indent-left="1133" xml:space="preserve">Indent 3</p>
+   <p xml:space="preserve"/>
+   <p class="Lijstalinea0" indent-level="0" xml:space="preserve">Bullet word stijl</p>
+   <p class="Lijstalinea0" indent-level="0" xml:space="preserve">Nog één</p>
+   <p class="Lijstalinea0" indent-level="1" xml:space="preserve">Indent 1</p>
+   <p class="Lijstalinea0" indent-level="2" xml:space="preserve">Indent 2</p>
+   <p xml:space="preserve"/>
+   <p class="Kop1" xml:space="preserve">Tabellen:</p>
+   <table>
+      <tr>
+         <td>
+            <p class="StandaardAlt" xml:space="preserve">Hdr 1</p>
+         </td>
+         <td>
+            <p class="StandaardAlt" xml:space="preserve">Hdr 2</p>
+         </td>
+         <td>
+            <p class="StandaardAlt" xml:space="preserve">Hdr 3</p>
+         </td>
+      </tr>
+      <tr>
+         <td>
+            <p class="StandaardAlt" xml:space="preserve">Bla</p>
+         </td>
+         <td>
+            <p class="StandaardAlt" xml:space="preserve">Bla</p>
+         </td>
+         <td>
+            <p class="StandaardAlt" xml:space="preserve">Bla</p>
+         </td>
+      </tr>
+      <tr>
+         <td>
+            <p class="StandaardAlt" xml:space="preserve">Bloeb</p>
+         </td>
+         <td>
+            <p class="StandaardAlt" xml:space="preserve">Bloeb</p>
+         </td>
+         <td>
+            <p class="StandaardAlt" xml:space="preserve">Bloeb <span class="b">bold</span><span class="b"> en </span><span class="b i">italic</span> en nog wat</p>
+         </td>
+      </tr>
+   </table>
+   <p xml:space="preserve"/>
+   <p xml:space="preserve"/>
+</document>

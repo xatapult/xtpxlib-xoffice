@@ -35,8 +35,8 @@
 
   <title>Conversions between Word/Excel and XML</title>
   <summary>
-    This component contains pipelines for converting Microsoft Office Word (`.docx`) and Excel (`.xlsx`) files to and from 
-    some more manageable XML formats. 
+    This component contains XProc (1.0 and 3.0) pipelines for converting Microsoft Office Word (`.docx`) and Excel (`.xlsx`) files to and from 
+    somewhat more manageable XML formats. 
   </summary>
   
   <documentation-uri>https://xoffice.xtpxlib.org</documentation-uri>

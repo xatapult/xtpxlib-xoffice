@@ -34,19 +34,22 @@
 
     <para>Microsoft Office files are actually zip files with a lot of XML and other stuff inside. It is remarkably difficult to get to the actual
       contents of them: What is in Excel cell A1B2 or what is written in this Word document. To help with this, the <code>{$component-name}</code>
-      component contains XProc (1.0) pipelines to extract contents from Excel (<code>.xlsx</code>) and Word (<code>.docx</code>) files:</para>
+      component contains XProc (1.0 and 3.0) pipelines to extract contents from Excel (<code>.xlsx</code>) and Word (<code>.docx</code>) files.</para>
 
     <para>The namespace prefix <code>xtlxo:</code> is bound to the namespace <code>http://www.xtpxlib.nl/ns/xoffice</code>
         (<code>xmlns:xtlxo="http://www.xtpxlib.nl/ns/xoffice"</code>).</para>
+
+    <note>
+      <para>Especially the <code>.docx</code> (Word) conversions should be considered unfinished and experimental. Not everything is converted.</para>
+    </note>
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
     <sect1>
       <title>Converting from Excel (<code>.xlsx</code>)</title>
 
-      <para>The <code><link linkend="excel.mod.xpl-xtlxo_extract-xlsx">xtlxo:extract-xlsx</link></code> pipeline takes an Excel <code>.xlsx</code>
-        file and turns this into much more manageable XML. The schema for the resulting XML format is <link linkend="xlsx-extract.xsd"
-        >here</link>.</para>
+      <para>The <code>xtlxo:extract-xlsx</code> pipeline takes an Excel <code>.xlsx</code> file and turns this into much more manageable XML. The
+        schema for the resulting XML format is <link linkend="xlsx-extract.xsd">here</link>.</para>
 
       <para>Take for instance this simple Excel sheet:</para>
       <figure>
@@ -58,8 +61,7 @@
         </mediaobject>
       </figure>
 
-      <para>Running this through the <code><link linkend="excel.mod.xpl-xtlxo_extract-xlsx">xtlxo:extract-xlsx</link></code> pipeline returns
-        something like:</para>
+      <para>Running this through the <code>xtlxo:extract-xlsx</code> pipeline returns something like this:</para>
       <programlisting><xi:include href="listings/example-excel-result.xml" parse="text"/></programlisting>
     </sect1>
 
@@ -68,8 +70,8 @@
     <sect1>
       <title>Converting to Excel (<code>.xlsx</code>)</title>
 
-      <para>The <code><link linkend="excel.mod.xpl-xtlxo_modify-xlsx">xtlxo:modify-xlsx</link></code> pipeline takes a template Excel
-          <code>.xlsx</code> file and changes this. The result will be written to a new Excel file.</para>
+      <para>The <code>xtlxo:modify-xlsx</code> pipeline takes a template Excel <code>.xlsx</code> file and changes this. The result will be written to
+        a new Excel file.</para>
       <para role="keep-with-next">It has the following features:</para>
       <itemizedlist>
         <listitem>
@@ -104,7 +106,7 @@
       <itemizedlist>
         <listitem>
           <para>If you need formatting in a cell you're going to fill with this pipeline (like colors, borders, etc.) there <emphasis>must</emphasis>
-            be some contents in the cell. Since this will be overwritten it should not be a problem.</para>
+            be some contents in the cell. Since this will be overwritten, it should not be a problem.</para>
         </listitem>
         <listitem>
           <para>The same is true for a cell you're referencing by name: It must contain some contents. If you need this contents to be invisible you
@@ -126,9 +128,8 @@
     <sect1>
       <title>Converting from Word (<code>.docx</code>)</title>
 
-      <para>The <code><link linkend="word.mod.xpl-xtlxo_extract-docx">xtlxo:extract-docx</link></code> pipeline takes a Word (<code>.docx</code>) file
-        and turns this into an understandable XML format. This format is more experimental than the format created by the Excel conversion and there
-        isn't (yet) a schema for it.</para>
+      <para>The <code>xtlxo:extract-docx</code> pipeline takes a Word (<code>.docx</code>) file and turns this into an understandable XML format. This
+        format is experimental, there is currently no schema for it.</para>
 
       <para>As an example take this simple Word file:</para>
       <figure>
@@ -140,15 +141,14 @@
         </mediaobject>
       </figure>
 
-      <para>Running this through the <code><link linkend="word.mod.xpl-xtlxo_extract-docx">xtlxo:extract-docx</link></code> pipeline returns something
-        like:</para>
+      <para>Running this through the <code>xtlxo:extract-docx</code> pipeline returns something like:</para>
       <programlisting><xi:include href="listings/example-word-result.xml" parse="text"/></programlisting>
 
       <para role="halfbreak"/>
-      <para>There is an experimental pipeline <code><link linkend="word.mod.xpl-xtlxo_create-docx">xtlxo:create-docx</link></code> to create Word
-        documents (using a template Word document for things like styles, margins, etc.). If you feed this the same kind of XML you get from
-            <code><link linkend="word.mod.xpl-xtlxo_extract-docx">xtlxo:extract-docx</link></code>, the result <emphasis>should</emphasis> be a valid,
-        useable Word document with the new text in it. It's currently incomplete (it doesn't do tables for instance). Use at your own risk.</para>
+      <para>There's an experimental pipeline <code>xtlxo:create-docx</code> to create Word documents (using a template Word document for things like
+        styles, margins, etc.). If you feed this the same kind of XML you get from <code>xtlxo:extract-docx</code>, the result
+          <emphasis>should</emphasis> be a valid, useable Word document with the new text in it. It's currently incomplete (it doesn't do tables for
+        instance). Use at your own risk.</para>
 
     </sect1>
 
@@ -156,12 +156,24 @@
 
   <!-- ================================================================== -->
 
-  <chapter xml:id="chapter-xproc-libraries" xreflabel="XProc Libraries">
-    <title>XProc Libraries</title>
+  <chapter xml:id="chapter-xproc-1-libraries" xreflabel="XProc Libraries">
+    <title>XProc 1.0 Support</title>
 
-    <para>The {$component-name} component contains the following XProc (1.0) library modules:</para>
+    <para>The {$component-name} component contains the following XProc 1.0 library modules:</para>
 
     <xdoc:transform href="$xdoc/code-docgen-dir.xpl" dir="../../xplmod/" filter="\.mod\.xpl$" header-level="1" filecomponents="3" sublevels="true"/>
+
+  </chapter>
+
+  <!-- ================================================================== -->
+
+  <chapter xml:id="chapter-xproc-3-libraries" xreflabel="XProc Libraries">
+    <title>XProc 3.0 Support</title>
+
+    <para>The {$component-name} component contains the following XProc 3.0 pipelines:</para>
+
+    <xdoc:transform href="$xdoc/code-docgen-dir.xpl" dir="../../xpl3/" filter="\.xpl$" header-level="1" filecomponents="2" sublevels="true"
+      id-suffix="xpl3-" depth="1"/>
 
   </chapter>
 
@@ -175,17 +187,17 @@
     <xdoc:transform href="$xdoc/code-docgen-dir.xpl" dir="../../xsd/" filter="\.xsd$" header-level="1" filecomponents="2" sublevels="true"/>
 
   </chapter>
-  
+
   <!-- ================================================================== -->
-  
+
   <chapter xml:id="chapter-xslt-modules" xreflabel="XSLT Modules">
     <title>XSLT Modules</title>
-    
+
     <para>The {$component-name} component contains the following XSLT modules.</para>
-    
+
     <xdoc:transform href="$xdoc/code-docgen-dir.xpl" dir="../../../xtpxlib-xoffice/xslmod/" filter="\.mod\.xsl$" header-level="1" filecomponents="2"
       sublevels="true"/>
-    
+
   </chapter>
-  
+
 </book>

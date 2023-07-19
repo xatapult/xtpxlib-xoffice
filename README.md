@@ -4,8 +4,8 @@
 
 ---------- 
 
-This component contains pipelines for converting Microsoft Office Word (`.docx`) and Excel (`.xlsx`) files to and from 
-some more manageable XML formats. 
+This component contains XProc (1.0 and 3.0) pipelines for converting Microsoft Office Word (`.docx`) and Excel (`.xlsx`) files to and from 
+somewhat more manageable XML formats. 
 
 ## Technical information
 
@@ -45,5 +45,5 @@ Pre-release to test GitHub pages functionality.
 
 
 -----------
-*Generated: 2023-07-13 15:34:13*
+*Generated: 2023-07-19 08:41:11*
 

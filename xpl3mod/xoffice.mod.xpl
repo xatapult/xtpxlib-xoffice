@@ -21,15 +21,21 @@
       <p:documentation>The resulting xtpxlib-container structure.</p:documentation>
     </p:output>
 
-    <p:option name="href" as="xs:string" required="true" >
+    <p:option name="href" as="xs:string" required="true">
       <p:documentation>Document reference of the Microsoft Open Office file to process.</p:documentation>
+    </p:option>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    <p:option name="add-document-target-paths" as="xs:boolean" required="false" select="false()">
+      <p:documentation>Copies the relative source path as the target path `@target-path` for the individual documents in the resulting container.</p:documentation>
     </p:option>
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
     <!-- Extract the Open Office document, which is actually a zip file, into a container structure. 
          Don't forget to treat these weird .rels files as XML also. -->
-    <xtlcon:zip-to-container href-source-zip="{$href}">
+    <xtlcon:zip-to-container href-source-zip="{$href}" add-document-target-paths="{$add-document-target-paths}">
       <p:with-option name="override-content-types" select="[ ['\.rels$', 'text/xml'] ]"/>
     </xtlcon:zip-to-container>
 
@@ -45,11 +51,11 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
     <p:input port="source" primary="true" sequence="false" content-types="xml">
-      <p:documentation>The .xlsx file xo container</p:documentation>
+      <p:documentation>The `.xlsx` file xo container</p:documentation>
     </p:input>
 
-    <p:output port="result" primary="true" sequence="false" content-types="xml" serialization="map{'method': 'xml', 'indent': true()}">
-      <p:documentation>The .xlsx file in xlsx-extract XML format.</p:documentation>
+    <p:output port="result" primary="true" sequence="false" content-types="xml">
+      <p:documentation>The `.xlsx` file in xlsx-extract XML format.</p:documentation>
     </p:output>
 
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -62,6 +68,32 @@
     <!-- Remove any empty rows and cells: -->
     <p:xslt>
       <p:with-input port="stylesheet" href="xsl-xoffice.mod/extract-xlsx-2.xsl"/>
+    </p:xslt>
+
+  </p:declare-step>
+
+  <!-- ======================================================================= -->
+
+  <p:declare-step type="xtlxo:docx-xo-container-to-xml">
+
+    <p:documentation>Turns an xo container (as created by xtlxo:get-xo-container) of a docx (Word) file into 
+      a more usable XML format (unspecified).</p:documentation>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    <p:input port="source" primary="true" sequence="false" content-types="xml">
+      <p:documentation>The `.docx` file xo container</p:documentation>
+    </p:input>
+
+    <p:output port="result" primary="true" sequence="false" content-types="xml">
+      <p:documentation>The `.docx` file in XML format.</p:documentation>
+    </p:output>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    <!-- Transform the contents into something manageable: -->
+    <p:xslt>
+      <p:with-input port="stylesheet" href="xsl-xoffice.mod/extract-docx-1.xsl"/>
     </p:xslt>
 
   </p:declare-step>
