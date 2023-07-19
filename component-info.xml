@@ -11,6 +11,9 @@
   <!-- ================================================================== -->
 
   <releases>
+    <release version="2.0" date="2023-07-19">
+      Added XProc 3.0 support.
+    </release>
     <release version="1.1.B" date="2020-02-16">
       Added the option to insert dates into Excel sheets and a small library for converting dates between Excel and xs:date formats. 
     </release>

@@ -9,7 +9,7 @@ somewhat more manageable XML formats.
 
 ## Technical information
 
-Component version: V1.1.B - 2020-02-16
+Component version: V2.0 - 2023-07-19
 
 Documentation: [`https://xoffice.xtpxlib.org`](https://xoffice.xtpxlib.org)
 
@@ -23,7 +23,11 @@ This component depends on:
 
 ## Version history
 
-**V1.1.B - 2020-02-16 (current)**
+**V2.0 - 2023-07-19 (current)**
+
+Added XProc 3.0 support.
+
+**V1.1.B - 2020-02-16**
 
 Added the option to insert dates into Excel sheets and a small library for converting dates between Excel and xs:date formats. 
 
@@ -45,5 +49,5 @@ Pre-release to test GitHub pages functionality.
 
 
 -----------
-*Generated: 2023-07-19 08:41:11*
+*Generated: 2023-07-19 09:00:50*
 
