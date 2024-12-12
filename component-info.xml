@@ -11,6 +11,9 @@
   <!-- ================================================================== -->
 
   <releases>
+    <release version="3.0" date="2024-12-12">
+      Deprecation of XProc 1.0. Several fixes.
+    </release>
     <release version="2.0" date="2023-07-19">
       Added XProc 3.0 support.
     </release>
