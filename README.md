@@ -10,7 +10,7 @@ somewhat more manageable XML formats.
 
 ## Technical information
 
-Component version: V2.0 - 2023-07-19
+Component version: V3.0 - 2024-12-12
 
 Documentation: [`https://xoffice.xtpxlib.org`](https://xoffice.xtpxlib.org)
 
@@ -24,7 +24,11 @@ This component depends on:
 
 ## Version history
 
-**V2.0 - 2023-07-19 (current)**
+**V3.0 - 2024-12-12 (current)**
+
+Deprecation of XProc 1.0. Several fixes.
+
+**V2.0 - 2023-07-19**
 
 Added XProc 3.0 support.
 
@@ -50,6 +54,6 @@ Pre-release to test GitHub pages functionality.
 
 
 -----------
-*Generated: 2024-12-12 14:20:12*
+*Generated: 2024-12-12 15:12:57*
 
 </README>
