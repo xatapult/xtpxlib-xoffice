@@ -14,7 +14,7 @@
   <!-- ================================================================== -->
   <!-- DATES: -->
 
-  <xsl:function name="xtlxo:excel-date-to-xs-date" as="xs:date">
+  <xsl:function name="xtlxo:excel-date-to-xs-date" as="xs:date" visibility="public">
     <!--~ Converts an Excel date integer into an xs:date.  -->
     <xsl:param name="excel-value" as="xs:integer">
       <!--~ The Excel date integer to convert.  -->
@@ -26,7 +26,7 @@
   
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   
-  <xsl:function name="xtlxo:xs-date-to-excel-date" as="xs:integer">
+  <xsl:function name="xtlxo:xs-date-to-excel-date" as="xs:integer" visibility="public">
     <!--~ Converts an xs:date into an Excel date integer.  -->
     <xsl:param name="date" as="xs:date">
       <!--~ The xs:date to convert.  -->

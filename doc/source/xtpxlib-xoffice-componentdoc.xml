@@ -156,25 +156,26 @@
 
   <!-- ================================================================== -->
 
-  <chapter xml:id="chapter-xproc-1-libraries" xreflabel="XProc Libraries">
-    <title>XProc 1.0 Support</title>
-
-    <para>The {$component-name} component contains the following XProc 1.0 library modules:</para>
-
-    <xdoc:transform href="$xdoc/code-docgen-dir.xpl" dir="../../xplmod/" filter="\.mod\.xpl$" header-level="1" filecomponents="3" sublevels="true"/>
-
-  </chapter>
-
-  <!-- ================================================================== -->
-
-  <chapter xml:id="chapter-xproc-3-libraries" xreflabel="XProc Libraries">
+  <chapter xml:id="chapter-xproc-3-libraries" xreflabel="XProc 3.0 Support">
     <title>XProc 3.0 Support</title>
 
     <para>The {$component-name} component contains the following XProc 3.0 pipelines:</para>
 
-    <xdoc:transform href="$xdoc/code-docgen-dir.xpl" dir="../../xpl3/" filter="\.xpl$" header-level="1" filecomponents="2" sublevels="true"
+    <xdoc:transform href="$xdoc/code-docgen-dir.xpl" dir="../../../xtpxlib-xoffice/xpl3/" filter="\.xpl$" header-level="1" filecomponents="2" sublevels="true"
       id-suffix="xpl3-" depth="1"/>
 
+  </chapter>
+  
+  <!-- ================================================================== -->
+  
+  <chapter xml:id="chapter-xproc-1-libraries" xreflabel="XProc 1.0 Support">
+    <title>XProc 1.0 Support</title>
+    
+    <para>The {$component-name} component contains the following XProc 1.0 library modules:</para>
+    <para><emphasis role="bold">WARNING</emphasis>: XProc&#160;1.0 support is considered deprecated and will be removed in the near future!</para>
+    
+    <xdoc:transform href="$xdoc/code-docgen-dir.xpl" dir="../../../xtpxlib-common/xplmod/" filter="\.mod\.xpl$" header-level="1" filecomponents="3" sublevels="true"/>
+    
   </chapter>
 
   <!-- ================================================================== -->
@@ -184,7 +185,7 @@
 
     <para>The {$component-name} component contains the following XML Schemas:</para>
 
-    <xdoc:transform href="$xdoc/code-docgen-dir.xpl" dir="../../xsd/" filter="\.xsd$" header-level="1" filecomponents="2" sublevels="true"/>
+    <xdoc:transform href="$xdoc/code-docgen-dir.xpl" dir="../../../xtpxlib-xoffice/xsd/" filter="\.xsd$" header-level="1" filecomponents="2" sublevels="true"/>
 
   </chapter>
 

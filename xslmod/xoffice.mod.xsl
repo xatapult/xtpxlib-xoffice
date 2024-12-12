@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xtlcon="http://www.xtpxlib.nl/ns/container"
-  xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xtlc="http://www.xtpxlib.nl/ns/common" xmlns:local="#local.ms-office.mod.xsl"
-  xmlns:xtlxo="http://www.xtpxlib.nl/ns/xoffice" xmlns:mso-rels="http://schemas.openxmlformats.org/package/2006/relationships"
-  exclude-result-prefixes="#all">
+<xsl:stylesheet version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xtlcon="http://www.xtpxlib.nl/ns/container" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xtlc="http://www.xtpxlib.nl/ns/common"
+  xmlns:local="#local.ms-office.mod.xsl" xmlns:xtlxo="http://www.xtpxlib.nl/ns/xoffice"
+  xmlns:mso-rels="http://schemas.openxmlformats.org/package/2006/relationships" exclude-result-prefixes="#all">
   <!-- ================================================================== -->
   <!--~
 		Library with support code for the MS Office file handling.
@@ -13,32 +13,32 @@
 		
 		Yet largely undocumented. Use at your own risk.
 	-->
-  
+
   <!-- ================================================================== -->
   <!-- COMMON DEFINITIONS: -->
-  
+
   <!-- Relationships: -->
   <xsl:variable name="xtlxo:relationship-type-main-document" as="xs:string"
-    select="'http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument'"/>
+    select="'http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument'" visibility="public"/>
   <xsl:variable name="xtlxo:relationship-type-shared-strings" as="xs:string"
-    select="'http://schemas.openxmlformats.org/officeDocument/2006/relationships/sharedStrings'"/>
+    select="'http://schemas.openxmlformats.org/officeDocument/2006/relationships/sharedStrings'" visibility="public"/>
   <xsl:variable name="xtlxo:relationship-type-comments" as="xs:string"
-    select="'http://schemas.openxmlformats.org/officeDocument/2006/relationships/comments'"/>
-  
+    select="'http://schemas.openxmlformats.org/officeDocument/2006/relationships/comments'" visibility="public"/>
+
   <!-- Property relationships: -->
   <xsl:variable name="xtlxo:relationship-type-core-properties" as="xs:string"
-    select="'http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties'"/>
+    select="'http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties'" visibility="public"/>
   <xsl:variable name="xtlxo:relationship-type-custom-properties" as="xs:string"
-    select="'http://schemas.openxmlformats.org/officeDocument/2006/relationships/custom-properties'"/>
+    select="'http://schemas.openxmlformats.org/officeDocument/2006/relationships/custom-properties'" visibility="public"/>
   <xsl:variable name="xtlxo:relationship-type-extended-properties" as="xs:string"
-    select="'http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties'"/>
-  
-  <xsl:variable name="local:message-prefix" as="xs:string" select="'*xtlxo: '"/>
-  
+    select="'http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties'" visibility="public"/>
+
+  <xsl:variable name="local:message-prefix" as="xs:string" select="'*xtlxo: '" visibility="private"/>
+
   <!-- ================================================================== -->
   <!-- NAVIGATING AROUND: -->
-  
-  <xsl:function name="xtlxo:get-file-root-from-relationship-type" as="element()?">
+
+  <xsl:function name="xtlxo:get-file-root-from-relationship-type" as="element()?" visibility="public">
     <xsl:param name="extracted-office-xml" as="element(xtlcon:document-container)"/>
     <xsl:param name="basefile-href" as="xs:string">
       <!-- The file in the office zip for which you want the relationship checked -->
@@ -48,7 +48,7 @@
         (e.g. http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument) -->
     </xsl:param>
     <xsl:param name="is-mandatory" as="xs:boolean"/>
-    
+
     <xsl:variable name="relationships" as="element(mso-rels:Relationships)*"
       select="xtlxo:get-file-root-relationship($extracted-office-xml, $basefile-href, $is-mandatory)"/>
     <xsl:variable name="relationship" as="element(mso-rels:Relationship)?" select="$relationships/mso-rels:Relationship[@Type eq $relationship-type]"/>
@@ -70,17 +70,17 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:function>
-  
+
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  
-  <xsl:function name="xtlxo:get-file-root-from-relationship-id" as="element()?">
+
+  <xsl:function name="xtlxo:get-file-root-from-relationship-id" as="element()?" visibility="public">
     <xsl:param name="extracted-office-xml" as="element(xtlcon:document-container)"/>
     <xsl:param name="basefile-href" as="xs:string">
       <!-- The file in the office zip for which you want the relationship checked -->
     </xsl:param>
     <xsl:param name="relationship-id" as="xs:string"/>
     <xsl:param name="is-mandatory" as="xs:boolean"/>
-    
+
     <xsl:variable name="relationships" as="element(mso-rels:Relationships)"
       select="xtlxo:get-file-root-relationship($extracted-office-xml, $basefile-href, $is-mandatory)"/>
     <xsl:variable name="relationship" as="element(mso-rels:Relationship)?" select="$relationships/mso-rels:Relationship[@Id eq $relationship-id]"/>
@@ -102,10 +102,10 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:function>
-  
+
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  
-  <xsl:function name="xtlxo:get-file-root-relationship" as="element(mso-rels:Relationships)?">
+
+  <xsl:function name="xtlxo:get-file-root-relationship" as="element(mso-rels:Relationships)?" visibility="public">
     <!-- Returns the root element of the relationship document belonging to the given basefile. When
       $basefile-hrf is '', it returns the root of the root relationships document. -->
     <xsl:param name="extracted-office-xml" as="element(xtlcon:document-container)"/>
@@ -113,18 +113,18 @@
       <!-- The file in the office zip for which you want the relationship checked -->
     </xsl:param>
     <xsl:param name="is-mandatory" as="xs:boolean"/>
-    
+
     <xsl:sequence select="xtlxo:get-file-root($extracted-office-xml, xtlxo:get-rels-href($basefile-href), $is-mandatory)"/>
   </xsl:function>
-  
+
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  
-  <xsl:function name="xtlxo:get-rels-href" as="xs:string">
+
+  <xsl:function name="xtlxo:get-rels-href" as="xs:string" visibility="public">
     <xsl:param name="basefile-href" as="xs:string"/>
-    
+
     <xsl:variable name="rels-subdir" as="xs:string" select="'_rels'"/>
     <xsl:variable name="rels-extension" as="xs:string" select="'.rels'"/>
-    
+
     <xsl:choose>
       <xsl:when test="$basefile-href eq ''">
         <xsl:sequence select="xtlxo:doc-href(($rels-subdir, $rels-extension))"/>
@@ -136,14 +136,14 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:function>
-  
+
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  
-  <xsl:function name="xtlxo:get-file-root" as="element()?">
+
+  <xsl:function name="xtlxo:get-file-root" as="element()?" visibility="public">
     <xsl:param name="extracted-office-xml" as="element(xtlcon:document-container)"/>
     <xsl:param name="href-parts" as="xs:string+"/>
     <xsl:param name="is-mandatory" as="xs:boolean"/>
-    
+
     <xsl:variable name="href" as="xs:string" select="xtlxo:doc-href($href-parts)"/>
     <xsl:variable name="doc-elm" as="element(xtlcon:document)?" select="($extracted-office-xml/xtlcon:document[@href-source eq $href])[1]"/>
     <xsl:choose>
@@ -157,63 +157,63 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:function>
-  
+
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  
-  <xsl:function name="xtlxo:doc-href" as="xs:string">
+
+  <xsl:function name="xtlxo:doc-href" as="xs:string" visibility="public">
     <!-- Turns a sequence of href parts/fragments into a full href, suitable to find a file in 
       an extracted office XML document. -->
     <xsl:param name="href-parts" as="xs:string+"/>
-    
+
     <!-- Maybe conanicalize name (clean up .. 's)? -->
     <xsl:variable name="doc-href" as="xs:string" select="xtlc:href-concat($href-parts)"/>
     <xsl:sequence select="if (starts-with($doc-href, '/')) then substring($doc-href, 2) else $doc-href"/>
   </xsl:function>
-  
+
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  
-  <xsl:function name="xtlxo:get-href" as="xs:string">
+
+  <xsl:function name="xtlxo:get-href" as="xs:string" visibility="public">
     <xsl:param name="elm" as="element()"/>
-    
+
     <xsl:sequence select="($elm/ancestor::xtlcon:document[1])/@href-source"/>
   </xsl:function>
-  
+
   <!-- ================================================================== -->
   <!-- PROPERTY HANDLING: -->
-  
-  <xsl:template name="xtlxo:get-properties" xmlns="http://www.xtpxlib.nl/ns/xoffice">
+
+  <xsl:template name="xtlxo:get-properties" xmlns="http://www.xtpxlib.nl/ns/xoffice" visibility="public">
     <xsl:param name="extracted-office-xml" as="element(xtlcon:document-container)"/>
-    
+
     <properties>
-      
+
       <xsl:call-template name="local:handle-property-document">
         <xsl:with-param name="extracted-office-xml" select="$extracted-office-xml"/>
         <xsl:with-param name="relationship-type" select="$xtlxo:relationship-type-core-properties"/>
         <xsl:with-param name="type-name" select="'core'"/>
       </xsl:call-template>
-      
+
       <xsl:call-template name="local:handle-property-document">
         <xsl:with-param name="extracted-office-xml" select="$extracted-office-xml"/>
         <xsl:with-param name="relationship-type" select="$xtlxo:relationship-type-custom-properties"/>
         <xsl:with-param name="type-name" select="'custom'"/>
       </xsl:call-template>
-      
+
       <xsl:call-template name="local:handle-property-document">
         <xsl:with-param name="extracted-office-xml" select="$extracted-office-xml"/>
         <xsl:with-param name="relationship-type" select="$xtlxo:relationship-type-extended-properties"/>
         <xsl:with-param name="type-name" select="'extended'"/>
       </xsl:call-template>
-      
+
     </properties>
   </xsl:template>
-  
+
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  
-  <xsl:template name="local:handle-property-document" xmlns="http://www.xtpxlib.nl/ns/xoffice">
+
+  <xsl:template name="local:handle-property-document" xmlns="http://www.xtpxlib.nl/ns/xoffice" visibility="private">
     <xsl:param name="extracted-office-xml" as="element(xtlcon:document-container)"/>
     <xsl:param name="relationship-type" as="xs:string" required="yes"/>
     <xsl:param name="type-name" as="xs:string" required="yes"/>
-    
+
     <xsl:variable name="root-elm" as="element()?"
       select="xtlxo:get-file-root-from-relationship-type($extracted-office-xml, '', $relationship-type, false())"/>
     <xsl:for-each select="$root-elm/*">
@@ -226,7 +226,7 @@
         </xsl:for-each>
       </property>
     </xsl:for-each>
-    
+
   </xsl:template>
-  
+
 </xsl:stylesheet>
